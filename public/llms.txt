@@ -1,0 +1,48 @@
+# SheetSmith — ชีทติวสอบเข้า ป.1 ม.1 ม.4
+
+> SheetSmith (sheetsmith.org) คือแหล่งรวมตัวอย่างข้อสอบเตรียมสอบเข้าโรงเรียนสาธิตและโรงเรียนชั้นนำในประเทศไทย ครอบคลุมระดับ ป.1 ม.1 และ ม.4 พร้อมเฉลยละเอียดแบบ step-by-step ทุกข้อ ดำเนินงานโดยบริษัท ซิโอร่า จำกัด
+
+## Entity
+
+- ชื่อแบรนด์: SheetSmith
+- ผู้ดำเนินงาน: บริษัท ซิโอร่า จำกัด
+- โดเมน: https://sheetsmith.org
+- ภาษา: ไทย
+- หมวด: การศึกษา / เตรียมสอบเข้าโรงเรียน
+- กลุ่มเป้าหมาย: ผู้ปกครองและนักเรียนไทยที่เตรียมสอบเข้า ป.1 ม.1 ม.4
+
+## Guides — คู่มือเตรียมสอบ
+
+- [คู่มือเตรียมสอบเข้า ป.1 โรงเรียนสาธิต](https://sheetsmith.org/guides/how-to-prepare-por1/): แนวทางและไทม์ไลน์เตรียมสอบเข้า ป.1 สาธิตจุฬา สาธิตเกษตร
+- [คู่มือเตรียมสอบเข้า ม.1 โรงเรียนชั้นนำ](https://sheetsmith.org/guides/how-to-prepare-mor1/): วิธีเตรียมสอบเข้า ม.1 สาธิตปทุมวัน สวนกุหลาบ บดินทรเดชา
+- [คู่มือเตรียมสอบเข้า ม.4 เตรียมอุดม](https://sheetsmith.org/guides/how-to-prepare-mor4/): แนวทางเตรียมสอบเข้า ม.4 เตรียมอุดม มหิดลวิทยานุสรณ์
+- [วิธีวิเคราะห์ข้อสอบเก่าให้ได้ผลสูงสุด](https://sheetsmith.org/guides/how-to-analyze-past-exams/): เทคนิคใช้ข้อสอบเก่าเป็นเครื่องมือเรียนรู้
+- [เทคนิคเตรียมสอบทั่วไป](https://sheetsmith.org/guides/general-exam-prep-tips/): หลักการเตรียมตัวสอบสำหรับทุกระดับ
+
+## Exam Library — ตัวอย่างข้อสอบ
+
+- [ข้อสอบเข้า ป.1 — สาธิตจุฬา สาธิตเกษตร และโรงเรียนชั้นนำ](https://sheetsmith.org/exams/por1/)
+- [ข้อสอบเข้า ม.1 — สาธิตปทุมวัน สวนกุหลาบ บดินทรเดชา](https://sheetsmith.org/exams/mor1/)
+- [ข้อสอบเข้า ม.4 — เตรียมอุดม มหิดลวิทยานุสรณ์](https://sheetsmith.org/exams/mor4/)
+- [รวมข้อสอบทั้งหมด](https://sheetsmith.org/exams/)
+
+## Blog — บทความวิเคราะห์ข้อสอบ
+
+- [วิเคราะห์ข้อสอบสวนกุหลาบ 2568](https://sheetsmith.org/blog/suankularb-exam-analysis-2568/)
+- [ข้อสอบ MWIT รอบแรก vs รอบสอง](https://sheetsmith.org/blog/mwit-round1-vs-round2/)
+- [คะแนนตัดสอบเตรียมอุดม ม.4](https://sheetsmith.org/blog/triam-cutoff-score/)
+- [ข้อสอบคณิต ม.1 ย้อนหลัง ปี 2568](https://sheetsmith.org/blog/mor1-math-past-exams-2568/)
+- [ปฏิทินสอบเข้า ป.1 ปี 2569](https://sheetsmith.org/blog/por1-exam-calendar-2569/)
+- [เปรียบเทียบเตรียมอุดม vs MWIT](https://sheetsmith.org/blog/triam-vs-mwit/)
+- [โรงเรียนชั้นนำสอบเข้า ม.1 ในกรุงเทพฯ](https://sheetsmith.org/blog/top-schools-mor1-bangkok/)
+
+## About
+
+- [เกี่ยวกับ SheetSmith และบริษัท ซิโอร่า จำกัด](https://sheetsmith.org/about/)
+- [ติดต่อเรา](https://sheetsmith.org/contact/)
+- [นโยบายความเป็นส่วนตัว](https://sheetsmith.org/privacy/)
+- [ข้อกำหนดการใช้งาน](https://sheetsmith.org/terms/)
+
+## Optional
+
+- [Sitemap (XML)](https://sheetsmith.org/sitemap-index.xml)
