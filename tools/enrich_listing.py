@@ -128,11 +128,14 @@ KNOWN_SCHOOL_IDS = {
 }
 
 
-def slugify(name: str, place_id: str = "") -> str:
-    """Generate a stable filename slug. Prefer ASCII transliteration; fall back to hash."""
+def slugify(name: str, place_id: str = "", lat: str = "", lng: str = "") -> str:
+    """Generate a stable filename slug. Prefer ASCII transliteration; fall back to hash.
+    Includes lat+lng in the hash to prevent collisions when Thai-only names with no
+    place_id share the same hash (the previous 6 collisions in the first pipeline run)."""
     s = name.lower().strip()
     ascii_part = re.sub(r"[^a-z0-9]+", "-", s)[:30].strip("-")
-    h = hashlib.md5((name + place_id).encode("utf-8")).hexdigest()[:6]
+    unique_key = name + place_id + str(lat) + str(lng)
+    h = hashlib.md5(unique_key.encode("utf-8")).hexdigest()[:8]
     return f"{ascii_part}-{h}" if ascii_part else f"listing-{h}"
 
 
@@ -153,7 +156,17 @@ def normalize_city(raw_city: str, address: str) -> str:
         return "khonkaen"
     if any(k in s for k in ["hat yai", "หาดใหญ่", "hatyai"]):
         return "hatyai"
-    return "bangkok"  # safe default — most data is BKK
+    if any(k in s for k in ["nakhon ratchasima", "โคราช", "นครราชสีมา"]):
+        return "nakhon-ratchasima"
+    if any(k in s for k in ["ubon ratchathani", "อุบลราชธานี", "ubon"]):
+        return "ubon"
+    if any(k in s for k in ["udon thani", "อุดรธานี", "udon"]):
+        return "udon-thani"
+    if "phuket" in s or "ภูเก็ต" in s:
+        return "phuket"
+    if "songkhla" in s or "สงขลา" in s:
+        return "songkhla"
+    return "bangkok"  # safe default
 
 
 def call_openai(payload: dict, retries: int = 3) -> dict:
@@ -376,7 +389,7 @@ def main():
             print(f"[{i}/{len(rows)}] skipped (no name)")
             skipped += 1
             continue
-        slug = slugify(name, row.get("place_id", ""))
+        slug = slugify(name, row.get("place_id", ""), row.get("lat", ""), row.get("lng", ""))
         out_path = out_dir / f"{slug}.md"
         if args.skip_existing and out_path.exists():
             print(f"[{i}/{len(rows)}] skip existing: {slug}")
