@@ -20,6 +20,16 @@ fi
 : "${APIFY_TOKEN:?APIFY_TOKEN not set — add to .env}"
 : "${OPENAI_API_KEY:?OPENAI_API_KEY not set — add to .env}"
 
+# Auto-bootstrap project venv with pyyaml (works around PEP 668 externally-managed environment)
+if [ ! -d .venv ]; then
+  echo "═══ First run: creating .venv with pyyaml ═══"
+  python3 -m venv .venv
+  .venv/bin/pip install --quiet pyyaml
+fi
+# Prepend venv to PATH so 'python3' in this script + children resolves to .venv/bin/python3
+export PATH=".venv/bin:${PATH}"
+echo "Using Python: $(which python3) ($(python3 --version 2>&1))"
+
 SKIP_SOURCE=0
 DRY_RUN=0
 for arg in "$@"; do
