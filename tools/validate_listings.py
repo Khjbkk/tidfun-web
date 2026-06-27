@@ -74,9 +74,12 @@ def validate(path: Path) -> list[str]:
     if not d.get("sources"):
         errors.append(f"{name}: sources empty (must cite where data came from)")
 
-    has_contact = d.get("phone") or d.get("line_id") or d.get("website") or d.get("email")
-    if not has_contact:
-        errors.append(f"{name}: no contact (phone/line_id/website/email all empty)")
+    # Contact info is preferred but optional — listings sourced from Google Maps
+    # often have map address + reviews even when the business does not publish
+    # phone/website. Users can still find them via the address.
+    has_contact = d.get("phone") or d.get("line_id") or d.get("website") or d.get("email") or d.get("facebook_url")
+    if not has_contact and not d.get("address_th"):
+        errors.append(f"{name}: neither contact (phone/line/website/email/fb) nor address provided")
 
     return errors
 
