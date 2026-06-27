@@ -177,6 +177,10 @@ def normalize_city(raw_city: str, address: str) -> str:
         return "surat-thani"
     if any(k in s for k in ["nakhon si thammarat", "นครศรีธรรมราช"]):
         return "nakhon-si-thammarat"
+    if any(k in s for k in ["phitsanulok", "พิษณุโลก"]):
+        return "phitsanulok"
+    if any(k in s for k in ["sakon nakhon", "สกลนคร"]):
+        return "sakon-nakhon"
     return "bangkok"  # safe default
 
 

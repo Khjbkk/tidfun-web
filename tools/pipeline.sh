@@ -42,38 +42,21 @@ done
 mkdir -p .tmp
 
 if [ "$SKIP_SOURCE" = "0" ]; then
-  echo "═══ Phase 1: Source (Apify Google Maps) — Scale to 300+ ═══"
-  # 5 new cities × ~10 records = ~50
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Pattaya, Chonburi, Thailand" --limit 10 --out .tmp/pattaya.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Rayong, Thailand" --limit 10 --out .tmp/rayong.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Hua Hin, Prachuap Khiri Khan, Thailand" --limit 10 --out .tmp/huahin.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Surat Thani, Thailand" --limit 10 --out .tmp/surat.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Nakhon Si Thammarat, Thailand" --limit 10 --out .tmp/nst.csv
-
-  # 4 BKK district expansion × ~10 = ~40
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา Sukhumvit" --location "Bangkok, Thailand" --limit 10 --out .tmp/sukhumvit.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา Silom" --location "Bangkok, Thailand" --limit 10 --out .tmp/silom.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา Ari" --location "Bangkok, Thailand" --limit 10 --out .tmp/ari.csv
-  python3 tools/source_listings.py --query "สถาบันกวดวิชา ลาดพร้าว" --location "Bangkok, Thailand" --limit 10 --out .tmp/latphrao.csv
-
-  # 4 existing-city deepen × ~8 = ~32
-  python3 tools/source_listings.py --query "ติวเตอร์" --location "Chiang Mai, Thailand" --limit 8 --out .tmp/cm_tutor.csv
-  python3 tools/source_listings.py --query "ติวเตอร์" --location "Khon Kaen, Thailand" --limit 8 --out .tmp/kk_tutor.csv
-  python3 tools/source_listings.py --query "ติวเตอร์" --location "Phuket, Thailand" --limit 8 --out .tmp/phuket_tutor.csv
-  python3 tools/source_listings.py --query "ติวเตอร์" --location "Nakhon Ratchasima, Thailand" --limit 8 --out .tmp/korat_tutor.csv
-
-  # 4 subject-specific × ~10 = ~40
-  python3 tools/source_listings.py --query "ติวภาษาอังกฤษ" --location "Bangkok, Thailand" --limit 10 --out .tmp/eng.csv
-  python3 tools/source_listings.py --query "ติวคณิตศาสตร์" --location "Bangkok, Thailand" --limit 10 --out .tmp/math.csv
-  python3 tools/source_listings.py --query "ติว IELTS" --location "Bangkok, Thailand" --limit 10 --out .tmp/ielts.csv
-  python3 tools/source_listings.py --query "ติว SAT" --location "Bangkok, Thailand" --limit 10 --out .tmp/sat.csv
+  echo "═══ Phase 1: Source (Apify Google Maps) — Top-up to 300+ ═══"
+  # Untapped regions
+  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Phitsanulok, Thailand" --limit 10 --out .tmp/pl.csv
+  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Sakon Nakhon, Thailand" --limit 10 --out .tmp/sn.csv
+  # Online-specific (captures online-only providers missed by location queries)
+  python3 tools/source_listings.py --query "ติวออนไลน์ Zoom" --location "Bangkok, Thailand" --limit 10 --out .tmp/online.csv
+  # Niche subjects
+  python3 tools/source_listings.py --query "ติว TOEFL" --location "Bangkok, Thailand" --limit 10 --out .tmp/toefl.csv
+  python3 tools/source_listings.py --query "ติวเตรียมสอบ ก.พ." --location "Bangkok, Thailand" --limit 10 --out .tmp/kor_por.csv
+  # Level-specific deepen CM
+  python3 tools/source_listings.py --query "ติวเตอร์ ป.6" --location "Chiang Mai, Thailand" --limit 8 --out .tmp/cm_por6.csv
 
   echo "═══ Merge CSVs ═══"
-  head -1 .tmp/pattaya.csv > .tmp/gmaps_merged.csv
-  for f in .tmp/pattaya.csv .tmp/rayong.csv .tmp/huahin.csv .tmp/surat.csv .tmp/nst.csv \
-           .tmp/sukhumvit.csv .tmp/silom.csv .tmp/ari.csv .tmp/latphrao.csv \
-           .tmp/cm_tutor.csv .tmp/kk_tutor.csv .tmp/phuket_tutor.csv .tmp/korat_tutor.csv \
-           .tmp/eng.csv .tmp/math.csv .tmp/ielts.csv .tmp/sat.csv; do
+  head -1 .tmp/pl.csv > .tmp/gmaps_merged.csv
+  for f in .tmp/pl.csv .tmp/sn.csv .tmp/online.csv .tmp/toefl.csv .tmp/kor_por.csv .tmp/cm_por6.csv; do
     tail -n +2 "$f" >> .tmp/gmaps_merged.csv
   done
   echo "  $(wc -l < .tmp/gmaps_merged.csv) rows (incl. header)"
