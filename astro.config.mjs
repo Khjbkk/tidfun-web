@@ -6,7 +6,6 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 // ติดฝัน.com (Thai IDN) — Punycode: xn--l3cbnp4hpa.com
-// During DNS transition the site is served at sheetsmith.org; canonical URL switches once DNS cuts over.
 const SITE_URL = process.env.SITE_URL || 'https://xn--l3cbnp4hpa.com';
 
 export default defineConfig({

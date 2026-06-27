@@ -71,3 +71,91 @@ credentials.json, token.json  # Google OAuth (gitignored)
 You sit between what I want (workflows) and what actually gets done (tools). Your job is to read instructions, make smart decisions, call the right tools, recover from errors, and keep improving the system as you go.
 
 Stay pragmatic. Stay reliable. Keep learning.
+
+---
+
+# Karpathy Skills — Coding Behavior Guidelines
+
+Source: https://github.com/forrestchang/andrej-karpathy-skills
+
+Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+
+**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+## 1. Think Before Coding
+
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+## 2. Simplicity First
+
+**Minimum code that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+## 3. Surgical Changes
+
+**Touch only what you must. Clean up only your own mess.**
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it - don't delete it.
+
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: Every changed line should trace directly to the user's request.
+
+## 4. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+
+---
+
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+---
+
+# SEO Tooling
+
+**Primary SEO tool: claude-seo (v2.0.0)** — installed at `~/.claude/skills/seo/`. For ANY SEO work on this site, route through this toolchain instead of ad-hoc analysis.
+
+Entry point: `/seo audit https://xn--l3cbnp4hpa.com` (ติดฝัน.com) for a full audit. Sub-skills handle specifics:
+- `seo-audit` — full crawl + parallel specialist agents (start here)
+- `seo-technical` — crawlability, CWV, schema, robots
+- `seo-content` / `seo-content-brief` — E-E-A-T, content quality, briefs
+- `seo-page` — single-URL deep dive
+- `seo-schema` — structured data (Educational/FAQ/Course relevant here)
+- `seo-geo` — AI Overviews / ChatGPT / Perplexity visibility
+- `seo-google` — Search Console, PageSpeed, CrUX, GA4 (needs API setup)
+- `seo-cluster` / `seo-plan` — content architecture and roadmap
+
+Repo: https://github.com/AgriciDaniel/claude-seo · Updated: 2026-06-08

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # IndexNow submission — pushes all URLs from sitemap to Bing/Yandex/Seznam IndexNow API
 # Run after Bing Webmaster Tools verifies the key file at:
-#   https://sheetsmith.org/60b8a8c86a09b5eda70402b28e5e53cb.txt
+#   https://xn--l3cbnp4hpa.com/b1324706905a1c9a05eaa36d03773959.txt
 #
 # Usage: bash tools/submit_indexnow.sh
 set -euo pipefail
 
-HOST="sheetsmith.org"
-KEY="60b8a8c86a09b5eda70402b28e5e53cb"
+HOST="xn--l3cbnp4hpa.com"
+KEY="b1324706905a1c9a05eaa36d03773959"
 KEY_LOCATION="https://${HOST}/${KEY}.txt"
 SITEMAP="https://${HOST}/sitemap-0.xml"
 
@@ -16,7 +16,6 @@ URLS=$(curl -s "${SITEMAP}" | grep -oE 'https://[^<]+' | sort -u)
 URL_COUNT=$(echo "${URLS}" | wc -l | tr -d ' ')
 echo "Found ${URL_COUNT} URLs"
 
-# Build JSON urlList
 URL_JSON=$(echo "${URLS}" | python3 -c 'import sys,json; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
 
 PAYLOAD=$(python3 -c "
