@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # IndexNow submission — pushes all URLs from sitemap to Bing/Yandex/Seznam IndexNow API
 # Run after Bing Webmaster Tools verifies the key file at:
-#   https://xn--l3cbnp4hpa.com/b1324706905a1c9a05eaa36d03773959.txt
+#   https://tidfun.org/de1c54297c5185452acd6c9673d8f281.txt
 #
 # Usage: bash tools/submit_indexnow.sh
 set -euo pipefail
 
-HOST="xn--l3cbnp4hpa.com"
-KEY="b1324706905a1c9a05eaa36d03773959"
+HOST="tidfun.org"
+KEY="de1c54297c5185452acd6c9673d8f281"
 KEY_LOCATION="https://${HOST}/${KEY}.txt"
-SITEMAP="https://${HOST}/sitemap-0.xml"
+SITEMAP="https://${HOST}/sitemap-listings.xml"
 
-echo "Fetching URLs from ${SITEMAP}..."
-URLS=$(curl -s "${SITEMAP}" | grep -oE 'https://[^<]+' | sort -u)
+echo "Fetching URLs from sitemaps..."
+URLS=""
+for sm in sitemap-listings.xml sitemap-discovery.xml sitemap-content.xml; do
+  URLS+=$(curl -s "https://${HOST}/${sm}" | grep -oE 'https://[^<]+')
+  URLS+=$'\n'
+done
+URLS=$(echo "${URLS}" | sort -u | grep -v "^$")
 URL_COUNT=$(echo "${URLS}" | wc -l | tr -d ' ')
 echo "Found ${URL_COUNT} URLs"
 

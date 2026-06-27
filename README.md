@@ -2,7 +2,7 @@
 
 Directory แห่งสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1 ม.1 ม.4 และมหาวิทยาลัย ดำเนินงานโดย **บริษัท ซิโอร่า จำกัด**
 
-**Production:** https://xn--l3cbnp4hpa.com (ติดฝัน.com — Thai IDN)
+**Production:** https://tidfun.org (ติดฝัน — brand is Thai, canonical URL is ASCII for email + Workers custom-domain compatibility)
 
 ## Stack
 

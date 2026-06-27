@@ -148,7 +148,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **Primary SEO tool: claude-seo (v2.0.0)** — installed at `~/.claude/skills/seo/`. For ANY SEO work on this site, route through this toolchain instead of ad-hoc analysis.
 
-Entry point: `/seo audit https://xn--l3cbnp4hpa.com` (ติดฝัน.com) for a full audit. Sub-skills handle specifics:
+Entry point: `/seo audit https://tidfun.org` (ติดฝัน — ติดฝัน.com 301→ tidfun.org) for a full audit. Sub-skills handle specifics:
 - `seo-audit` — full crawl + parallel specialist agents (start here)
 - `seo-technical` — crawlability, CWV, schema, robots
 - `seo-content` / `seo-content-brief` — E-E-A-T, content quality, briefs

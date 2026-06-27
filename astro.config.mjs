@@ -5,8 +5,9 @@ import sitemap from '@astrojs/sitemap';
 
 import cloudflare from '@astrojs/cloudflare';
 
-// ติดฝัน.com (Thai IDN) — Punycode: xn--l3cbnp4hpa.com
-const SITE_URL = process.env.SITE_URL || 'https://xn--l3cbnp4hpa.com';
+// tidfun.org — primary canonical (ASCII). Brand "ติดฝัน" lives in content.
+// ติดฝัน.com (xn--l3cbnp4hpa.com) is 301-redirected to tidfun.org via Cloudflare Bulk Redirect.
+const SITE_URL = process.env.SITE_URL || 'https://tidfun.org';
 
 export default defineConfig({
   site: SITE_URL,

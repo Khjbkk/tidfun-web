@@ -1,58 +1,81 @@
 # ติดฝัน (TidFun) — Directory ติวเตอร์-สถาบันกวดวิชา ทั่วประเทศไทย
 
-> ติดฝัน (tidfun.com / xn--l3cbnp4hpa.com) คือ directory แห่งสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1, ม.1, ม.4 และมหาวิทยาลัย ผู้ปกครองค้นหาเปรียบเทียบสถาบันที่เหมาะกับลูกได้ในที่เดียว ดำเนินงานโดยบริษัท ซิโอร่า จำกัด ภายใต้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA)
+> ติดฝัน (tidfun.org) คือ directory แห่งสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1, ม.1, ม.4 และมหาวิทยาลัย ผู้ปกครองค้นหาเปรียบเทียบสถาบันที่เหมาะกับลูกได้ในที่เดียว ดำเนินงานโดยบริษัท ซิโอร่า จำกัด ภายใต้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA)
 
 ## Entity
 
 - ชื่อแบรนด์: ติดฝัน (TidFun)
 - ผู้ดำเนินงาน: บริษัท ซิโอร่า จำกัด
-- โดเมน: https://xn--l3cbnp4hpa.com (Thai IDN: ติดฝัน.com)
+- โดเมนหลัก: https://tidfun.org
+- โดเมน IDN รอง: ติดฝัน.com (xn--l3cbnp4hpa.com) — 301 redirect ไป tidfun.org
 - ภาษา: ไทย
 - หมวด: Directory / Education / การศึกษา / Tutoring
 - ขอบเขต: ทั่วประเทศไทย
 
 ## Categories — ระดับชั้น
 
-- [เตรียมสอบเข้า ป.1](https://xn--l3cbnp4hpa.com/category/por1/): รวมสถาบันและติวเตอร์เตรียมสอบเข้าโรงเรียนสาธิตชั้นนำระดับประถม
-- [เตรียมสอบเข้า ม.1](https://xn--l3cbnp4hpa.com/category/mor1/): รวมสถาบันและติวเตอร์เตรียมสอบเข้า ม.1 สาธิตปทุมวัน สวนกุหลาบ บดินทรเดชา และโรงเรียนชั้นนำ
-- [เตรียมสอบเข้า ม.4](https://xn--l3cbnp4hpa.com/category/mor4/): รวมสถาบันและติวเตอร์เตรียมสอบเข้า ม.4 เตรียมอุดมศึกษา MWIT
-- [เตรียมสอบเข้ามหาวิทยาลัย](https://xn--l3cbnp4hpa.com/category/uni/): TGAT TPAT A-Level สอบตรง portfolio prep
+- [เตรียมสอบเข้า ป.1](https://tidfun.org/category/por1/): รวมสถาบันและติวเตอร์เตรียมสอบเข้าโรงเรียนสาธิตชั้นนำระดับประถม
+- [เตรียมสอบเข้า ม.1](https://tidfun.org/category/mor1/): รวมสถาบันและติวเตอร์เตรียมสอบเข้า ม.1 สาธิตปทุมวัน สวนกุหลาบ บดินทรเดชา และโรงเรียนชั้นนำ
+- [เตรียมสอบเข้า ม.4](https://tidfun.org/category/mor4/): รวมสถาบันและติวเตอร์เตรียมสอบเข้า ม.4 เตรียมอุดมศึกษา MWIT
+- [เตรียมสอบเข้ามหาวิทยาลัย](https://tidfun.org/category/uni/): TGAT TPAT A-Level สอบตรง portfolio prep
 
 ## Target Schools — โรงเรียนเป้าหมาย
 
-- [สาธิตจุฬา ป.1](https://xn--l3cbnp4hpa.com/for-school/satit-chula-por1/)
-- [สาธิตเกษตร ป.1](https://xn--l3cbnp4hpa.com/for-school/satit-kaset-por1/)
-- [สาธิตประสานมิตร ป.1](https://xn--l3cbnp4hpa.com/for-school/satit-prasanmit-por1/)
-- [สวนกุหลาบ ม.1](https://xn--l3cbnp4hpa.com/for-school/suankularb-mor1/)
-- [สาธิตปทุมวัน ม.1](https://xn--l3cbnp4hpa.com/for-school/satit-patumwan-mor1/)
-- [เตรียมอุดม ม.4](https://xn--l3cbnp4hpa.com/for-school/triam-udom-mor4/)
-- [MWIT มหิดลวิทยานุสรณ์ ม.4](https://xn--l3cbnp4hpa.com/for-school/mwit-mor4/)
+- [สาธิตจุฬา ป.1](https://tidfun.org/for-school/satit-chula-por1/)
+- [สาธิตเกษตร ป.1](https://tidfun.org/for-school/satit-kaset-por1/)
+- [สาธิตประสานมิตร ป.1](https://tidfun.org/for-school/satit-prasanmit-por1/)
+- [สวนกุหลาบ ม.1](https://tidfun.org/for-school/suankularb-mor1/)
+- [สาธิตปทุมวัน ม.1](https://tidfun.org/for-school/satit-patumwan-mor1/)
+- [บดินทรเดชา ม.1](https://tidfun.org/for-school/bodindecha-mor1/)
+- [เตรียมอุดม ม.4](https://tidfun.org/for-school/triam-udom-mor4/)
+- [MWIT มหิดลวิทยานุสรณ์ ม.4](https://tidfun.org/for-school/mwit-mor4/)
+- [KVIS กำเนิดวิทย์ ม.4](https://tidfun.org/for-school/kvis-mor4/)
+
+## Best-of pages (rankings)
+
+- [ติวเตอร์ออนไลน์ที่ดีที่สุดสำหรับเตรียมสอบเข้า ป.1](https://tidfun.org/best-of/best-online-tutor-por1/)
+- [สถาบันกวดวิชาเตรียมสอบเข้า ม.1 ที่ดีที่สุดในกรุงเทพ](https://tidfun.org/best-of/best-cram-school-mor1-bangkok/)
+- [ติวเตอร์ส่วนตัวที่ดีที่สุดสำหรับเตรียมสอบเข้า ม.4](https://tidfun.org/best-of/best-private-tutor-mor4/)
+- [ติวเตอร์งบประหยัดที่ดีที่สุด](https://tidfun.org/best-of/best-budget-tutor-thailand/)
+- [ติวเตอร์ที่ดีที่สุดสำหรับเตรียมสอบเข้ามหาวิทยาลัยต่างประเทศ](https://tidfun.org/best-of/best-uni-prep-sat-ielts/)
+
+## Pillar articles — คู่มือยาว
+
+- [คู่มือเตรียมสอบเข้า ป.1 โรงเรียนสาธิต ฉบับสมบูรณ์](https://tidfun.org/pillars/how-to-prepare-por1-complete-guide/)
+- [คู่มือเตรียมสอบเข้า ม.1 โรงเรียนชั้นนำ ฉบับสมบูรณ์](https://tidfun.org/pillars/how-to-prepare-mor1-complete-guide/)
+- [คู่มือเตรียมสอบเข้า ม.4 เตรียมอุดม MWIT KVIS](https://tidfun.org/pillars/how-to-prepare-mor4-complete-guide/)
+- [วิธีเลือกติวเตอร์ที่ใช่กับลูก — เช็คลิสต์ 10 ข้อ](https://tidfun.org/pillars/how-to-choose-tutor-checklist/)
+- [ค่าติวในไทย 2569 — เรียนกลุ่ม vs ตัวต่อตัว vs ออนไลน์](https://tidfun.org/pillars/tutoring-cost-thailand-2569/)
+- [ติวออนไลน์ vs ติวพบหน้า แบบไหนเหมาะกับลูก](https://tidfun.org/pillars/online-vs-in-person-tutoring/)
 
 ## Cities — พื้นที่
 
-- [กรุงเทพมหานคร](https://xn--l3cbnp4hpa.com/city/bangkok/)
-- [นนทบุรี](https://xn--l3cbnp4hpa.com/city/nonthaburi/)
-- [เชียงใหม่](https://xn--l3cbnp4hpa.com/city/chiangmai/)
-- [ขอนแก่น](https://xn--l3cbnp4hpa.com/city/khonkaen/)
-- [หาดใหญ่](https://xn--l3cbnp4hpa.com/city/hatyai/)
-- [ออนไลน์ (ทั่วประเทศ)](https://xn--l3cbnp4hpa.com/city/online/)
+- [กรุงเทพมหานคร](https://tidfun.org/city/bangkok/)
+- [นนทบุรี](https://tidfun.org/city/nonthaburi/)
+- [สมุทรปราการ](https://tidfun.org/city/samutprakan/)
+- [ปทุมธานี](https://tidfun.org/city/pathumthani/)
+- [เชียงใหม่](https://tidfun.org/city/chiangmai/)
+- [ขอนแก่น](https://tidfun.org/city/khonkaen/)
+- [หาดใหญ่](https://tidfun.org/city/hatyai/)
+- [ออนไลน์ (ทั่วประเทศ)](https://tidfun.org/city/online/)
 
 ## Tools — เครื่องมือฟรี
 
-- [หาติวเตอร์ที่ใช่ใน 3 นาที](https://xn--l3cbnp4hpa.com/tool/find-my-tutor/): แบบสอบถาม 5 ข้อ → รายการสถาบันที่ตรงกับเงื่อนไข
-- [ค้นหาสถาบัน](https://xn--l3cbnp4hpa.com/search): กรองตามวิชา ระดับ พื้นที่ ราคา
+- [หาติวเตอร์ที่ใช่ใน 3 นาที](https://tidfun.org/tool/find-my-tutor/): แบบสอบถาม 5 ข้อ → รายการสถาบันที่ตรงกับเงื่อนไข
+- [ค้นหาสถาบัน](https://tidfun.org/search): กรองตามวิชา ระดับ พื้นที่ ราคา
 
 ## For Tutors — สำหรับสถาบันและติวเตอร์
 
-- [เพิ่มสถาบันของคุณ ฟรี](https://xn--l3cbnp4hpa.com/claim/)
+- [เพิ่มสถาบันของคุณ ฟรี](https://tidfun.org/claim/)
 
 ## About
 
-- [เกี่ยวกับ ติดฝัน และ บริษัท ซิโอร่า จำกัด](https://xn--l3cbnp4hpa.com/about/)
-- [ติดต่อเรา](https://xn--l3cbnp4hpa.com/contact/)
-- [นโยบายความเป็นส่วนตัว (PDPA)](https://xn--l3cbnp4hpa.com/privacy/)
-- [ข้อกำหนดการใช้งาน](https://xn--l3cbnp4hpa.com/terms/)
+- [เกี่ยวกับ ติดฝัน และ บริษัท ซิโอร่า จำกัด](https://tidfun.org/about/)
+- [ติดต่อเรา](https://tidfun.org/contact/)
+- [นโยบายความเป็นส่วนตัว (PDPA)](https://tidfun.org/privacy/)
+- [ข้อกำหนดการใช้งาน](https://tidfun.org/terms/)
 
-## Optional
+## Feeds & Sitemaps
 
-- [Sitemap (XML)](https://xn--l3cbnp4hpa.com/sitemap-index.xml)
+- [RSS](https://tidfun.org/rss.xml)
+- [Sitemap index](https://tidfun.org/sitemap-tidfun.xml)
