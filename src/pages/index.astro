@@ -19,6 +19,36 @@ const sortedCategories = categories.sort((a, b) => a.data.sort - b.data.sort);
 const topSchools = schools.sort((a, b) => a.data.sort - b.data.sort);
 const topCities = cities.filter(c => c.data.id !== 'online').sort((a, b) => a.data.sort - b.data.sort).slice(0, 6);
 
+const site = Astro.site?.toString() || 'https://tidfun.org/';
+// Homepage WebPage schema — sets the page-level entity so other schemas can @id reference it
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': site,
+  url: site,
+  name: 'ติดฝัน — Directory ติวเตอร์-สถาบันกวดวิชา',
+  description: 'รวมสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย',
+  inLanguage: 'th',
+  isPartOf: { '@id': `${site}#org` },
+  about: { '@id': `${site}#org` },
+  primaryImageOfPage: { '@type': 'ImageObject', url: `${site}logo.png` },
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.home-hero-claim'] },
+};
+
+// ItemList of featured listings — improves SERP appearance for brand queries
+const featuredListSchema = featured.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'สถาบันแนะนำบนติดฝัน',
+  numberOfItems: featured.length,
+  itemListElement: featured.map((l, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${site}listing/${l.id}/`,
+    name: l.data.name_th,
+  })),
+} : null;
+
 const homeFaq = [
   {
     question: 'ติดฝัน คือเว็บไซต์อะไร?',
@@ -47,6 +77,9 @@ const homeFaq = [
   title="ติดฝัน — Directory ติวเตอร์-สถาบันกวดวิชา หาที่ติวที่ใช่ใน 3 นาที"
   description="ติดฝัน รวมสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย ค้นหาตามโรงเรียน วิชา พื้นที่ ราคา หาที่ติวที่ใช่กับลูกของคุณ"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  {featuredListSchema && <script type="application/ld+json" set:html={JSON.stringify(featuredListSchema)} />}
+
   <!-- Hero -->
   <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 text-white py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-20">
@@ -60,7 +93,7 @@ const homeFaq = [
         หาที่ติวที่ใช่<br />
         <span class="text-amber-300">ให้ลูกติดโรงเรียนในฝัน</span>
       </h1>
-      <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-8">
+      <p class="home-hero-claim text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-8">
         รวมสถาบันกวดวิชาและติวเตอร์ทั่วประเทศ เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย ค้นหาตามโรงเรียน วิชา พื้นที่ ราคา
       </p>
 
