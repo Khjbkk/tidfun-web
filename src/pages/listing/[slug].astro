@@ -101,6 +101,32 @@ const listingSchema: any = {
 };
 
 const contactMissing = d.phone.length === 0 && !d.website && !d.line_id && !d.email;
+
+// Add hasMap (Google Maps URL constructed from lat/lng) for local SEO
+const googleMapsUrl = d.lat && d.lng
+  ? `https://www.google.com/maps/search/?api=1&query=${d.lat},${d.lng}`
+  : null;
+if (googleMapsUrl) listingSchema.hasMap = googleMapsUrl;
+
+// sameAs — external entities representing this business
+const sameAs: string[] = [];
+if (d.facebook_url) sameAs.push(d.facebook_url);
+if (googleMapsUrl) sameAs.push(googleMapsUrl);
+if (sameAs.length) listingSchema.sameAs = sameAs;
+
+// Related listings — same category AND (same city OR shared school), top 4 by rating
+const allListings = await getCollection('listings');
+const related = allListings
+  .filter(o => o.id !== listing.id)
+  .filter(o => {
+    const sharedCat = o.data.categories.some(c => d.categories.includes(c));
+    if (!sharedCat) return false;
+    const sameCity = o.data.city === d.city;
+    const sharedSchool = o.data.target_schools.some(s => d.target_schools.includes(s));
+    return sameCity || sharedSchool;
+  })
+  .sort((a, b) => (b.data.google_rating || 0) - (a.data.google_rating || 0))
+  .slice(0, 4);
 const sourceLabel: Record<string, string> = {
   apify_google_maps: 'Google Maps',
   openai_enrichment: 'ทีมงานติดฝัน (เรียบเรียง)',
@@ -264,6 +290,25 @@ const faqSchema = {
     </section>
 
     <FAQSection items={d.faq} title={`คำถามที่พบบ่อยเกี่ยวกับ ${d.name_th}`} />
+
+    {related.length > 0 && (
+      <section class="my-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">สถาบันใกล้เคียงที่เทียบเคียงได้</h2>
+        <p class="text-gray-600 mb-6 text-sm">รวมสถาบันที่เตรียมสอบ{categoryLabel[d.categories[0]] || ''}{d.city ? ` ใน ${d.city}` : ''} เผื่อเปรียบเทียบ</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {related.map(r => (
+            <a href={`/listing/${r.id}/`} class="block bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-indigo-300 transition-all group">
+              <h3 class="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-1">{r.data.name_th}</h3>
+              <p class="text-xs text-gray-500 mt-1">{r.data.district ? `${r.data.district} · ` : ''}{r.data.city}</p>
+              {r.data.google_rating && (
+                <p class="text-xs text-amber-600 mt-1">★ {r.data.google_rating.toFixed(1)} ({r.data.google_review_count || 0})</p>
+              )}
+              <p class="text-xs text-gray-600 mt-2 line-clamp-2">{r.data.description_th.slice(0, 100)}...</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Anti-thin / Trust footer -->
     <section class="my-8 text-xs text-gray-500 border-t border-gray-200 pt-4">

@@ -21,6 +21,30 @@ const matching = allListings.filter(l => l.data.categories.includes(category.id 
 const schools = await getCollection('schools');
 const relevantSchools = schools.filter(s => s.data.level === category.id).sort((a, b) => a.data.sort - b.data.sort);
 
+// CollectionPage + ItemList + Speakable schema for the category landing
+const site = Astro.site?.toString() || 'https://tidfun.org/';
+const categorySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site}category/${category.id}/`,
+  name: category.name_th,
+  description: category.description_th,
+  inLanguage: 'th',
+  isPartOf: { '@id': `${site}#org` },
+  about: { '@type': 'EducationalOccupationalProgram', name: category.name_th },
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.cat-intro'] },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: matching.length,
+    itemListElement: matching.slice(0, 20).map((l, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${site}listing/${l.id}/`,
+      name: l.data.name_th,
+    })),
+  },
+};
+
 const catFaq = [
   {
     question: `${category.name_th} ควรเริ่มเตรียมตัวตั้งแต่ตอนไหน?`,
@@ -57,6 +81,8 @@ const catFaq = [
   title={`${category.name_th} — รวมสถาบันกวดวิชาและติวเตอร์ | ติดฝัน`}
   description={category.description_th.slice(0, 155)}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(categorySchema)} />
+
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
     <Breadcrumb items={[{ label: category.name_th }]} />
 
@@ -65,7 +91,7 @@ const catFaq = [
         <span class="text-4xl">{category.icon}</span>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{category.name_th}</h1>
       </div>
-      <p class="text-gray-700 leading-relaxed">{category.intro_th}</p>
+      <p class="cat-intro text-gray-700 leading-relaxed">{category.intro_th}</p>
     </header>
 
     {relevantSchools.length > 0 && (

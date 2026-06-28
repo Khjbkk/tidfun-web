@@ -15,19 +15,48 @@ export async function getStaticPaths() {
 const { city } = Astro.props;
 const allListings = await getCollection('listings');
 const matching = allListings.filter(l => l.data.city === city.id);
+
+const site = Astro.site?.toString() || 'https://tidfun.org/';
+const citySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site}city/${city.id}/`,
+  name: `ติวเตอร์-สถาบันกวดวิชาใน ${city.name_th}`,
+  description: city.description_th,
+  inLanguage: 'th',
+  isPartOf: { '@id': `${site}#org` },
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.city-intro'] },
+  about: {
+    '@type': 'Place',
+    name: city.name_th,
+    address: { '@type': 'PostalAddress', addressLocality: city.name_th, addressRegion: city.region_th, addressCountry: 'TH' },
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: matching.length,
+    itemListElement: matching.slice(0, 20).map((l, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${site}listing/${l.id}/`,
+      name: l.data.name_th,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title={`ติวเตอร์-สถาบันกวดวิชาใน ${city.name_th} | ติดฝัน`}
   description={`รวมสถาบันกวดวิชาและติวเตอร์ทุกระดับใน ${city.name_th} เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย เปรียบเทียบราคาและรูปแบบ`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(citySchema)} />
+
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
     <Breadcrumb items={[{ label: city.name_th }]} />
 
     <header class="mb-10">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">ติวเตอร์-สถาบันกวดวิชาใน {city.name_th}</h1>
       <p class="text-sm text-gray-500 mb-3">{city.region_th}</p>
-      <p class="text-gray-700 leading-relaxed">{city.description_th}</p>
+      <p class="city-intro text-gray-700 leading-relaxed">{city.description_th}</p>
     </header>
 
     <section class="mb-10">

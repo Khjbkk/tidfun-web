@@ -16,19 +16,21 @@ const { pillar } = Astro.props;
 const { Content } = await render(pillar);
 const d = pillar.data;
 
+const site = Astro.site?.toString() || 'https://tidfun.org/';
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: d.title,
+  '@id': `${site}pillars/${pillar.id}/#article`,
+  headline: d.title.slice(0, 110),
   description: d.description,
+  inLanguage: 'th',
+  articleSection: 'การเตรียมสอบและกวดวิชา',
   datePublished: d.publishDate.toISOString(),
   ...(d.updatedDate ? { dateModified: d.updatedDate.toISOString() } : {}),
-  author: { '@type': 'Organization', name: 'ติดฝัน', url: Astro.site?.toString() },
-  publisher: {
-    '@type': 'Organization',
-    name: 'ติดฝัน',
-    legalName: 'บริษัท ซิโอร่า จำกัด',
-  },
+  author: { '@id': `${site}#editorial-team` },
+  publisher: { '@id': `${site}#org` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${site}pillars/${pillar.id}/` },
+  isPartOf: { '@id': `${site}#org` },
 };
 ---
 
