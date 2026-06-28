@@ -16,6 +16,23 @@ const { pillar } = Astro.props;
 const { Content } = await render(pillar);
 const d = pillar.data;
 
+// Pillar → relevant listings widget (commercial-intent funnel from informational content)
+const pillarToFilter: Record<string, (l: any) => boolean> = {
+  'how-to-prepare-por1-complete-guide': l => l.data.categories.includes('por1'),
+  'how-to-prepare-mor1-complete-guide': l => l.data.categories.includes('mor1'),
+  'how-to-prepare-mor4-complete-guide': l => l.data.categories.includes('mor4'),
+  'how-to-prepare-tcas-tgat-tpat': l => l.data.categories.includes('uni'),
+  'english-program-ep-bilingual-thailand': l => l.data.subjects.includes('english'),
+  'online-vs-in-person-tutoring': l => l.data.quick_facts.format.some((f: string) => f === 'online' || f === 'hybrid'),
+  'tutoring-cost-thailand-2569': l => l.data.pricing_tier === 'budget',
+};
+const filterFn = pillarToFilter[pillar.id];
+const allListingsForPillar = await getCollection('listings');
+const relevantListings = (filterFn
+  ? allListingsForPillar.filter(filterFn)
+  : [...allListingsForPillar].filter(l => l.data.google_rating)
+).sort((a, b) => (b.data.google_rating || 0) - (a.data.google_rating || 0)).slice(0, 6);
+
 const site = Astro.site?.toString() || 'https://tidfun.org/';
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -61,6 +78,25 @@ const articleSchema = {
         <Content />
       </div>
     </article>
+
+    {relevantListings.length > 0 && (
+      <section class="my-12 bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 rounded-2xl p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">สถาบันที่เกี่ยวข้องกับบทความนี้</h2>
+        <p class="text-gray-600 mb-6 text-sm">สถาบันที่ตรงกับเนื้อหาในบทความ — เริ่มเปรียบเทียบหรือเข้าดูรายละเอียดได้เลย</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {relevantListings.map(r => (
+            <a href={`/listing/${r.id}/`} class="block bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-indigo-300 transition-all group">
+              <h3 class="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-1">{r.data.name_th}</h3>
+              <p class="text-xs text-gray-500 mt-1">{r.data.district ? `${r.data.district} · ` : ''}{r.data.city}</p>
+              {r.data.google_rating && (
+                <p class="text-xs text-amber-600 mt-1">★ {r.data.google_rating.toFixed(1)} ({r.data.google_review_count || 0})</p>
+              )}
+              <p class="text-xs text-gray-600 mt-2 line-clamp-2">{r.data.description_th.slice(0, 100)}...</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <NewsletterSignup variant="inline" />
   </div>

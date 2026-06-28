@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ListingCard from '../../components/ListingCard.astro';
+import FAQSection from '../../components/FAQSection.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,6 +16,48 @@ export async function getStaticPaths() {
 const { city } = Astro.props;
 const allListings = await getCollection('listings');
 const matching = allListings.filter(l => l.data.city === city.id);
+
+// City stats for the answer block
+const ratedCount = matching.filter(l => l.data.google_rating).length;
+const avgRating = ratedCount > 0
+  ? (matching.filter(l => l.data.google_rating).reduce((sum, l) => sum + (l.data.google_rating || 0), 0) / ratedCount).toFixed(2)
+  : null;
+const onlineCount = matching.filter(l => l.data.quick_facts.format.some(f => f === 'online' || f === 'hybrid')).length;
+const tierCounts = matching.reduce((acc, l) => {
+  acc[l.data.pricing_tier] = (acc[l.data.pricing_tier] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const top3 = [...matching]
+  .filter(l => l.data.google_rating)
+  .sort((a, b) => (b.data.google_rating || 0) - (a.data.google_rating || 0))
+  .slice(0, 3);
+const categoryLabel: Record<string, string> = {
+  por1: 'ป.1', mor1: 'ม.1', mor4: 'ม.4', uni: 'มหาวิทยาลัย', all: 'ทุกระดับ',
+};
+const catCounts = matching.reduce((acc, l) => {
+  l.data.categories.forEach(c => { acc[c] = (acc[c] || 0) + 1; });
+  return acc;
+}, {} as Record<string, number>);
+
+// FAQ entries — only if we have enough listings to make answers meaningful
+const cityFaqs = matching.length >= 3 ? [
+  {
+    question: `มีกี่สถาบันกวดวิชาและติวเตอร์ใน ${city.name_th}?`,
+    answer: `ปัจจุบันติดฝันรวบรวม ${matching.length} สถาบันใน ${city.name_th} โดยแบ่งเป็น ${Object.entries(catCounts).map(([k, v]) => `${categoryLabel[k] || k} ${v} สถาบัน`).join(' · ')} ข้อมูลอัปเดตเป็นประจำเมื่อมีสถาบันใหม่ในจังหวัด`,
+  },
+  {
+    question: `ราคาเรียนติวใน ${city.name_th} เริ่มต้นเท่าไหร่?`,
+    answer: `จากข้อมูลสถาบันใน ${city.name_th} ที่ติดฝันรวบรวม ระดับงบประหยัดประมาณ ฿800-2,000/เดือน (${tierCounts.budget || 0} สถาบัน) งบกลาง ฿2,000-5,000/เดือน (${tierCounts.mid || 0} สถาบัน) งบพรีเมียม ฿5,000+/เดือน (${tierCounts.premium || 0} สถาบัน) ผู้ปกครองควรติดต่อสถาบันโดยตรงเพื่อยืนยันราคาจริง`,
+  },
+  ...(onlineCount > 0 ? [{
+    question: `${city.name_th} มีสถาบันเรียนออนไลน์ไหม?`,
+    answer: `มี ${onlineCount} สถาบันใน ${city.name_th} ที่เปิดสอนแบบออนไลน์หรือ Hybrid (online + in-person) เหมาะกับครอบครัวที่ต้องการประหยัดเวลาเดินทาง หรือลูกอยู่ในพื้นที่ห่างจากตัวเมือง`,
+  }] : []),
+  ...(avgRating && top3.length > 0 ? [{
+    question: `สถาบันยอดนิยมใน ${city.name_th} ดูจากอะไร?`,
+    answer: `จากคะแนน Google ของสถาบันใน ${city.name_th} ค่าเฉลี่ยอยู่ที่ ${avgRating}/5 ดาว สถาบันที่มีรีวิวสูงสุด 3 อันดับแรกในจังหวัดคือ ${top3.map((l, i) => `(${i + 1}) ${l.data.name_th} ${l.data.google_rating?.toFixed(1)}★`).join(' · ')} ทั้งนี้คะแนนสูงไม่ได้แปลว่าเหมาะกับลูกทุกคน ควรเช็คแนวข้อสอบที่สถาบันถนัดด้วย`,
+  }] : []),
+] : [];
 
 const site = Astro.site?.toString() || 'https://tidfun.org/';
 const citySchema = {
@@ -42,6 +85,17 @@ const citySchema = {
     })),
   },
 };
+
+// Separate FAQPage schema — only when faqs exist
+const cityFaqSchema = cityFaqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: cityFaqs.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+} : null;
 ---
 
 <BaseLayout
@@ -49,6 +103,7 @@ const citySchema = {
   description={`รวมสถาบันกวดวิชาและติวเตอร์ทุกระดับใน ${city.name_th} เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย เปรียบเทียบราคาและรูปแบบ`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(citySchema)} />
+  {cityFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(cityFaqSchema)} />}
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
     <Breadcrumb items={[{ label: city.name_th }]} />
@@ -58,6 +113,33 @@ const citySchema = {
       <p class="text-sm text-gray-500 mb-3">{city.region_th}</p>
       <p class="city-intro text-gray-700 leading-relaxed">{city.description_th}</p>
     </header>
+
+    {matching.length >= 3 && (
+      <section class="mb-10 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4">
+          <p class="text-xs text-indigo-700 font-medium mb-1">สถาบันทั้งหมด</p>
+          <p class="text-2xl font-bold text-gray-900">{matching.length}</p>
+        </div>
+        {avgRating && (
+          <div class="bg-amber-50 border border-amber-100 rounded-lg p-4">
+            <p class="text-xs text-amber-700 font-medium mb-1">คะแนนเฉลี่ย</p>
+            <p class="text-2xl font-bold text-gray-900">{avgRating}<span class="text-amber-500 text-base ml-1">★</span></p>
+            <p class="text-xs text-gray-500 mt-0.5">{ratedCount} สถาบันมีรีวิว</p>
+          </div>
+        )}
+        {onlineCount > 0 && (
+          <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4">
+            <p class="text-xs text-emerald-700 font-medium mb-1">มีออนไลน์</p>
+            <p class="text-2xl font-bold text-gray-900">{onlineCount}<span class="text-xs text-gray-500 font-normal"> สถาบัน</span></p>
+          </div>
+        )}
+        <div class="bg-purple-50 border border-purple-100 rounded-lg p-4">
+          <p class="text-xs text-purple-700 font-medium mb-1">ช่วงราคา</p>
+          <p class="text-xl font-bold text-gray-900">฿ - ฿฿฿</p>
+          <p class="text-xs text-gray-500 mt-0.5">{tierCounts.budget || 0}+{tierCounts.mid || 0}+{tierCounts.premium || 0}</p>
+        </div>
+      </section>
+    )}
 
     <section class="mb-10">
       <h2 class="text-2xl font-bold text-gray-900 mb-2">รวมสถาบันใน {city.name_th}</h2>
@@ -89,5 +171,9 @@ const citySchema = {
         </div>
       )}
     </section>
+
+    {cityFaqs.length > 0 && (
+      <FAQSection items={cityFaqs} title={`คำถามที่พบบ่อยเกี่ยวกับติวเตอร์ใน ${city.name_th}`} />
+    )}
   </div>
 </BaseLayout>

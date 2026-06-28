@@ -17,6 +17,11 @@ const { listing } = Astro.props;
 const d = listing.data;
 const { Content } = await render(listing);
 
+// Lookup the region for this listing's city to enrich PostalAddress
+const allCities = await getCollection('cities');
+const cityRecord = allCities.find(c => c.data.id === d.city || c.data.name_th === d.city);
+const addressRegion = cityRecord?.data.region_th || null;
+
 const categoryLabel: Record<string, string> = {
   por1: 'เตรียมสอบเข้า ป.1',
   mor1: 'เตรียมสอบเข้า ม.1',
@@ -55,6 +60,7 @@ const listingSchema: any = {
     '@type': 'PostalAddress',
     streetAddress: d.address_th,
     addressLocality: d.city,
+    ...(addressRegion ? { addressRegion } : {}),
     addressCountry: 'TH',
   },
   ...(d.lat && d.lng ? { geo: { '@type': 'GeoCoordinates', latitude: d.lat, longitude: d.lng } } : {}),
