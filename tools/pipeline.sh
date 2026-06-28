@@ -42,8 +42,24 @@ done
 mkdir -p .tmp
 
 if [ "$SKIP_SOURCE" = "0" ]; then
-  echo "═══ Phase 1: Source (Apify Google Maps) — Scale to 500+ ═══"
-  # 10 untapped regions × 8 = ~80
+  echo "═══ Phase 1: Source (Apify Google Maps) — Top-up to 500+ ═══"
+  # 5 small top-up queries to push from 466 → 500+
+  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Trang, Thailand" --limit 8 --out .tmp/trang.csv
+  python3 tools/source_listings.py --query "ติว IELTS" --location "Chiang Mai, Thailand" --limit 8 --out .tmp/cm_ielts.csv
+  python3 tools/source_listings.py --query "ติวเตอร์" --location "Pathum Thani, Thailand" --limit 8 --out .tmp/pt_tutor.csv
+  python3 tools/source_listings.py --query "ติว ม.4 วิทยาศาสตร์" --location "Bangkok, Thailand" --limit 8 --out .tmp/bkk_sci.csv
+  python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Yala, Thailand" --limit 8 --out .tmp/yala.csv
+
+  echo "═══ Merge CSVs ═══"
+  head -1 .tmp/trang.csv > .tmp/gmaps_merged.csv
+  for f in .tmp/trang.csv .tmp/cm_ielts.csv .tmp/pt_tutor.csv .tmp/bkk_sci.csv .tmp/yala.csv; do
+    tail -n +2 "$f" >> .tmp/gmaps_merged.csv
+  done
+  echo "  $(wc -l < .tmp/gmaps_merged.csv) rows (incl. header)"
+fi
+
+# Legacy long-form scale block — kept for future use but skipped in top-up mode
+if false; then
   python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Chiang Rai, Thailand" --limit 8 --out .tmp/cr.csv
   python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Lampang, Thailand" --limit 8 --out .tmp/lp.csv
   python3 tools/source_listings.py --query "สถาบันกวดวิชา" --location "Buri Ram, Thailand" --limit 8 --out .tmp/br.csv
@@ -123,8 +139,18 @@ per Bigfoot §3 STEP 3-5. All listings pass the Zod anti-thin gate.
 
 Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 "
+# Stash any other working-tree changes (e.g. package-lock churn) so the
+# rebase doesn't abort with "cannot pull with rebase: unstaged changes"
+STASHED=0
+if ! git diff-index --quiet HEAD --; then
+  git stash push -u -m "pipeline-autostash"
+  STASHED=1
+fi
 git pull --rebase origin main
 git push origin main
+if [ "$STASHED" = "1" ]; then
+  git stash pop || true
+fi
 
 echo
 echo "✓ Pipeline complete. Cloudflare rebuild in 1-3 min."
