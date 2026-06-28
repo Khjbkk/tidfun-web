@@ -40,12 +40,38 @@ const schoolFaq = [
   },
 ];
 
+const site = Astro.site?.toString() || 'https://tidfun.org/';
 const pageSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
+  '@id': `${site}for-school/${school.id}/`,
   name: `เตรียมสอบเข้า ${school.name_th} — รวมสถาบันและติวเตอร์`,
-  url: `https://${Astro.site?.host}/for-school/${school.id}/`,
+  description: school.description_th,
+  url: `${site}for-school/${school.id}/`,
+  inLanguage: 'th',
+  isPartOf: { '@id': `${site}#org` },
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.school-intro'] },
   about: { '@type': 'EducationalOrganization', name: school.full_name_th, alternateName: school.name_th },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: matching.length,
+    itemListElement: matching.slice(0, 20).map((l, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${site}listing/${l.id}/`,
+      name: l.data.name_th,
+    })),
+  },
+};
+
+const schoolFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: schoolFaq.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
 };
 ---
 
@@ -54,6 +80,7 @@ const pageSchema = {
   description={`รวมสถาบันกวดวิชาและติวเตอร์ที่เชี่ยวชาญเตรียมสอบเข้า ${school.full_name_th} เปรียบเทียบราคา รูปแบบ และวิธีการสอน เลือกที่เหมาะกับลูก`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schoolFaqSchema)} />
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
     <Breadcrumb items={[
@@ -64,7 +91,7 @@ const pageSchema = {
     <header class="mb-10">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">เตรียมสอบเข้า {school.name_th}</h1>
       <p class="text-sm text-gray-500 mb-4">{school.full_name_th}</p>
-      <p class="text-gray-700 leading-relaxed">{school.description_th}</p>
+      <p class="school-intro text-gray-700 leading-relaxed">{school.description_th}</p>
     </header>
 
     <section class="mb-10">

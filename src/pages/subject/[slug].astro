@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ListingCard from '../../components/ListingCard.astro';
+import FAQSection from '../../components/FAQSection.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,12 +16,89 @@ export async function getStaticPaths() {
 const { subject } = Astro.props;
 const allListings = await getCollection('listings');
 const matching = allListings.filter(l => l.data.subjects.includes(subject.id as any));
+
+// Stats
+const ratedCount = matching.filter(l => l.data.google_rating).length;
+const avgRating = ratedCount > 0
+  ? (matching.filter(l => l.data.google_rating).reduce((sum, l) => sum + (l.data.google_rating || 0), 0) / ratedCount).toFixed(2)
+  : null;
+const onlineCount = matching.filter(l => l.data.quick_facts.format.some(f => f === 'online' || f === 'hybrid')).length;
+
+// Top 3
+const top3 = [...matching]
+  .filter(l => l.data.google_rating)
+  .sort((a, b) => (b.data.google_rating || 0) - (a.data.google_rating || 0))
+  .slice(0, 3);
+
+const categoryLabel: Record<string, string> = {
+  por1: 'ป.1', mor1: 'ม.1', mor4: 'ม.4', uni: 'มหาวิทยาลัย', all: 'ทุกระดับ',
+};
+const catCounts = matching.reduce((acc, l) => {
+  l.data.categories.forEach(c => { acc[c] = (acc[c] || 0) + 1; });
+  return acc;
+}, {} as Record<string, number>);
+
+// FAQ — programmatic, only if ≥3 listings
+const subjectFaqs = matching.length >= 3 ? [
+  {
+    question: `มีกี่สถาบันที่สอน${subject.name_th}บนติดฝัน?`,
+    answer: `ปัจจุบันติดฝันรวบรวม ${matching.length} สถาบันที่สอน${subject.name_th} กระจายตามระดับ ${Object.entries(catCounts).map(([k, v]) => `${categoryLabel[k] || k} ${v} สถาบัน`).join(' · ')} ครอบคลุมตั้งแต่ปูพื้นฐานสำหรับเด็กเล็กถึงเตรียมสอบเข้ามหาวิทยาลัย`,
+  },
+  {
+    question: `เลือกสถาบันสอน${subject.name_th}อย่างไรให้เหมาะกับลูก?`,
+    answer: `พิจารณา (1) ระดับชั้นที่ลูกกำลังเรียน เทียบกับระดับที่สถาบันเชี่ยวชาญ (2) ทดลองเรียน 1-2 ครั้งก่อนตัดสินใจเพื่อวัดว่าครูสื่อสารกับลูกได้ดีไหม (3) ดูตัวอย่างชีทและแนวข้อสอบที่ใช้ ต้องตรงกับสิ่งที่ลูกต้องเตรียม (4) ขนาดห้องเรียน — ห้องเล็กดูแลใกล้ชิดกว่า แต่ค่าเรียนสูงกว่า`,
+  },
+  ...(onlineCount > 0 ? [{
+    question: `เรียน${subject.name_th}ออนไลน์ได้ผลเทียบกับห้องเรียนปกติไหม?`,
+    answer: `มี ${onlineCount} สถาบันที่เปิดสอน${subject.name_th}แบบออนไลน์หรือ Hybrid สำหรับวิชาที่เน้นการคำนวณและการอธิบายแนวคิด (คณิต ฟิสิกส์ เคมี) เรียนออนไลน์ได้ผลใกล้เคียงห้องเรียนสำหรับเด็กที่สมาธิดี ส่วนวิชาที่ต้องฝึกพูด-ฟัง (ภาษาอังกฤษ) ครูออนไลน์ที่มี breakout room ช่วยได้`,
+  }] : []),
+  ...(top3.length > 0 && avgRating ? [{
+    question: `สถาบันที่รีวิวดีสุดสำหรับ${subject.name_th}คือสถาบันไหน?`,
+    answer: `จากคะแนน Google ของสถาบันที่สอน${subject.name_th} ค่าเฉลี่ยอยู่ที่ ${avgRating}/5 ดาว สถาบันที่มีคะแนนสูงสุด 3 อันดับแรกคือ ${top3.map((l, i) => `(${i + 1}) ${l.data.name_th} ${l.data.google_rating?.toFixed(1)}★`).join(' · ')} คะแนนเป็นจุดเริ่มต้น แต่ควรทดลองเรียนเองด้วยเพราะสไตล์ครูเหมาะกับเด็กแต่ละคนไม่เหมือนกัน`,
+  }] : []),
+] : [];
+
+const site = Astro.site?.toString() || 'https://tidfun.org/';
+const subjectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site}subject/${subject.id}/`,
+  name: `ติว${subject.name_th}`,
+  description: subject.description_th,
+  inLanguage: 'th',
+  isPartOf: { '@id': `${site}#org` },
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.subject-intro'] },
+  about: { '@type': 'Course', name: subject.name_th, inLanguage: 'th' },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: matching.length,
+    itemListElement: matching.slice(0, 20).map((l, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${site}listing/${l.id}/`,
+      name: l.data.name_th,
+    })),
+  },
+};
+
+const subjectFaqSchema = subjectFaqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: subjectFaqs.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+} : null;
 ---
 
 <BaseLayout
   title={`ติว${subject.name_th} — รวมสถาบันและติวเตอร์ | ติดฝัน`}
   description={`รวมสถาบันและติวเตอร์ที่สอน ${subject.name_th} ทุกระดับชั้น ตั้งแต่ ป.1 ถึงมหาวิทยาลัย เลือกที่ตรงกับลูก`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(subjectSchema)} />
+  {subjectFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(subjectFaqSchema)} />}
+
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
     <Breadcrumb items={[{ label: subject.name_th }]} />
 
@@ -29,8 +107,33 @@ const matching = allListings.filter(l => l.data.subjects.includes(subject.id as 
         <span class="text-4xl">{subject.icon}</span>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900">ติว{subject.name_th}</h1>
       </div>
-      <p class="text-gray-700 leading-relaxed">{subject.description_th}</p>
+      <p class="subject-intro text-gray-700 leading-relaxed">{subject.description_th}</p>
     </header>
+
+    {matching.length >= 3 && (
+      <section class="mb-10 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4">
+          <p class="text-xs text-indigo-700 font-medium mb-1">สถาบันที่สอน</p>
+          <p class="text-2xl font-bold text-gray-900">{matching.length}</p>
+        </div>
+        {avgRating && (
+          <div class="bg-amber-50 border border-amber-100 rounded-lg p-4">
+            <p class="text-xs text-amber-700 font-medium mb-1">คะแนนเฉลี่ย</p>
+            <p class="text-2xl font-bold text-gray-900">{avgRating}<span class="text-amber-500 text-base ml-1">★</span></p>
+          </div>
+        )}
+        {onlineCount > 0 && (
+          <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4">
+            <p class="text-xs text-emerald-700 font-medium mb-1">มีออนไลน์</p>
+            <p class="text-2xl font-bold text-gray-900">{onlineCount}</p>
+          </div>
+        )}
+        <div class="bg-purple-50 border border-purple-100 rounded-lg p-4">
+          <p class="text-xs text-purple-700 font-medium mb-1">ครอบคลุม</p>
+          <p class="text-sm font-bold text-gray-900 mt-1">{Object.keys(catCounts).length} ระดับ</p>
+        </div>
+      </section>
+    )}
 
     <section class="mb-10">
       <h2 class="text-2xl font-bold text-gray-900 mb-2">สถาบันที่สอน{subject.name_th}</h2>
@@ -61,5 +164,9 @@ const matching = allListings.filter(l => l.data.subjects.includes(subject.id as 
         </div>
       )}
     </section>
+
+    {subjectFaqs.length > 0 && (
+      <FAQSection items={subjectFaqs} title={`คำถามที่พบบ่อยเกี่ยวกับการเรียน${subject.name_th}`} />
+    )}
   </div>
 </BaseLayout>

@@ -38,5 +38,4 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-Sitemap: https://tidfun.org/sitemap-index.xml
 Sitemap: https://tidfun.org/sitemap-tidfun.xml

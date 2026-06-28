@@ -11,6 +11,7 @@ const SITE_URL = process.env.SITE_URL || 'https://tidfun.org';
 
 export default defineConfig({
   site: SITE_URL,
+  trailingSlash: 'always',
 
   integrations: [
     sitemap({

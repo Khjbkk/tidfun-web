@@ -37,6 +37,14 @@ const orgSchema = {
   alternateName: ['TidFun', 'tidfun'],
   legalName: 'บริษัท ซิโอร่า จำกัด',
   url: Astro.site?.toString(),
+  logo: {
+    '@type': 'ImageObject',
+    url: `${Astro.site?.toString()}logo.png`,
+    caption: 'ติดฝัน — TidFun',
+  },
+  image: `${Astro.site?.toString()}logo.png`,
+  slogan: 'ติวที่ใช่ใน 3 นาที',
+  foundingDate: '2026',
   description: 'Directory แห่งสถาบันกวดวิชาและติวเตอร์ทั่วประเทศไทย เตรียมสอบเข้า ป.1 ม.1 ม.4 มหาวิทยาลัย',
   areaServed: { '@type': 'Country', name: 'Thailand' },
   knowsAbout: [
