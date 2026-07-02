@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: สามารถเรียนออนไลน์ได้หรือไม่?'
   answer: Wonder Learning มีการเรียนการสอนทั้งแบบออนไลน์และในสถานที่ เพื่อความสะดวกของนักเรียน
 quick_facts:
-  price_range: ประมาณ ฿3,500-7,000/เดือน
+  price_range: "฿4,700-10,700/เดือน"
   class_size: 10-15 คน/ห้อง หรือ 1-on-1
   format:
   - in_person

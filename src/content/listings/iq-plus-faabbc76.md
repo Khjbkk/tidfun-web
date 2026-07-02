@@ -47,7 +47,7 @@ faq:
 - question: 'Q6: สามารถติดต่อสถาบันได้อย่างไร?'
   answer: สามารถติดต่อได้ทางโทรศัพท์หมายเลข +66995043030 หรือเยี่ยมชมเว็บไซต์ที่ iqplustutorschool.com
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿350-850/ชม."
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

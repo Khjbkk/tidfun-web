@@ -49,7 +49,7 @@ faq:
   answer: สามารถติดต่อสถาบันได้ทางโทรศัพท์ที่หมายเลข +66636636946 หรือผ่านทาง Facebook
     ของสถาบัน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,900-6,000/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

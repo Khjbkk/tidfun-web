@@ -1,7 +1,7 @@
 ---
 name_th: Upbrain Tutor Trang
 address_th: ถ. วิเศษกุล ตำบล ทับเที่ยง อำเภอเมืองตรัง ตรัง 92000 ไทย
-city: bangkok
+city: trang
 type: cram_school
 district: ตำบล ทับเที่ยง
 lat: 7.5476895
@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: มีการเตรียมสอบอะไรบ้าง?'
   answer: มีการเตรียมสอบ SAT และ IELTS สำหรับนักเรียนที่ต้องการศึกษาต่อในต่างประเทศ
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,300-8,000/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

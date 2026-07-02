@@ -1,7 +1,7 @@
 ---
 name_th: โรงเรียนกวดวิชา Ultimate Goal (U.G. Cadet)
 address_th: 92 ถนน พระยาตรัง อำเภอเมืองจันทบุรี จันทบุรี 22000 ไทย
-city: trang
+city: chanthaburi
 type: cram_school
 lat: 12.6161398
 lng: 102.099637
@@ -43,7 +43,7 @@ faq:
 - question: 'Q6: มีการเตรียมความพร้อมด้านไหนบ้าง?'
   answer: มีการเตรียมความพร้อมทั้งด้านวิชาการ การฝึกความพร้อมทางกายภาพ และทักษะการคิดวิเคราะห์
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿2,800-6,200/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

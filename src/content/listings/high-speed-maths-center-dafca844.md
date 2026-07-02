@@ -1,7 +1,7 @@
 ---
 name_th: โรงเรียนกวดวิชา High Speed Maths Center พัทยา
 address_th: 87 ถ. สุขุมวิท เมืองพัทยา อำเภอบางละมุง ชลบุรี 20150 ไทย
-city: bangkok
+city: chonburi
 type: cram_school
 district: เมืองพัทยา
 lat: 12.9161226
@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: โรงเรียนมีวิธีการประเมินผลอย่างไร?'
   answer: การประเมินผลจะมีการทดสอบความเข้าใจและการแก้โจทย์ปัญหาอย่างสม่ำเสมอ เพื่อให้มั่นใจว่านักเรียนมีความก้าวหน้า
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿400-750/ชม."
   class_size: 5-10 คน/ห้อง
   format:
   - in_person

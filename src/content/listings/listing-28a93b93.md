@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: ครูผู้สอนมีความเชี่ยวชาญในวิชาใดบ้าง?'
   answer: ครูผู้สอนมีความเชี่ยวชาญในวิชา math, science, english และ readiness ซึ่งจะช่วยให้นักเรียนพัฒนาทักษะได้อย่างมีประสิทธิภาพ
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,100-6,100/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

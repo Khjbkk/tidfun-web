@@ -43,7 +43,7 @@ faq:
 - question: 'Q6: Big Genius ตั้งอยู่ที่ไหน?'
   answer: ตั้งอยู่ที่ซอย ราษฎร์พัฒนา 1 แขวง สะพานสูง สะพานสูง กรุงเทพมหานคร
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,300-6,300/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

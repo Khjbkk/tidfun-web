@@ -44,7 +44,7 @@ faq:
   answer: Insight English ตั้งอยู่ที่ 313 C.P. Tower ชั้น 3 เขตบางรัก กรุงเทพมหานคร
     สะดวกต่อการเดินทาง
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,600-7,100/เดือน"
   class_size: 1-on-1 หรือกลุ่มเล็ก
   format:
   - in_person

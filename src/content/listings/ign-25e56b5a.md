@@ -52,7 +52,7 @@ faq:
   answer: สถาบันนี้มีความเชี่ยวชาญในการเตรียมสอบและพัฒนาทักษะการเรียนรู้ในวิชา math,
     science และ english
 quick_facts:
-  price_range: ฿2,500-5,500/เดือน
+  price_range: "฿3,000-5,800/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

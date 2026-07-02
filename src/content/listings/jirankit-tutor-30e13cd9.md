@@ -1,7 +1,7 @@
 ---
 name_th: Jirankit Tutor
 address_th: 43 73 ถนนรัษฎา ตำบล ทับเที่ยง อ.เมือง ตรัง 92000 ไทย
-city: bangkok
+city: trang
 type: private_tutor
 district: ตำบล ทับเที่ยง
 lat: 7.5520988
@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: มีการประเมินผลการเรียนหรือไม่?'
   answer: มีการประเมินผลการเรียนเป็นระยะเพื่อให้รู้ถึงความก้าวหน้าและจุดที่ต้องปรับปรุงของนักเรียน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿4,000-7,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

@@ -2,7 +2,7 @@
 name_th: "ติวคณิตราคาประหยัด ออนไลน์ ทุกระดับ"
 name_en: "BudgetMath Online"
 address_th: "ออนไลน์ (ทีมงานอยู่ที่ขอนแก่นและกรุงเทพ)"
-city: "online"
+city: bangkok
 website: "https://example.com/budgetmath"
 email: "support@budgetmath.example"
 line_id: "@budgetmath"
@@ -34,7 +34,7 @@ faq:
   - question: "สมัครยังไง ทดลองเรียนได้ไหม?"
     answer: "สมัครผ่านเว็บไซต์หรือ LINE @budgetmath ทดลองเรียนฟรี 1 ครั้ง โดยเลือก class ที่ตรงกับระดับลูก ถ้าพอใจถึงจะสมัครคอร์สเต็มเดือน"
 quick_facts:
-  price_range: "฿599/เดือน"
+  price_range: "฿1,300-2,500/เดือน"
   class_size: "20-30 คน/ห้อง"
   format: ["online"]
   age_range: "9-18 ปี (ป.3-ม.6)"

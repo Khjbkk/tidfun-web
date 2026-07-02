@@ -2,7 +2,7 @@
 name_th: "Kids IQ Online — ติว ป.1 สาธิต เชาว์ปัญญา"
 name_en: "Kids IQ Online"
 address_th: "เรียนออนไลน์เท่านั้น (สำนักงานสุขุมวิท ซอย 31 กรุงเทพ)"
-city: "online"
+city: bangkok
 website: "https://example.com/kidsiq"
 email: "hello@kidsiq.example"
 line_id: "@kidsiq"
@@ -35,7 +35,7 @@ faq:
   - question: "ทดลองเรียนได้ไหม?"
     answer: "ทดลองเรียน 1 ครั้งฟรี ผ่าน Zoom ครูจะประเมินความพร้อมของลูกและให้ feedback หลังเรียน ผู้ปกครองสามารถถามคำถามได้เลย ไม่บังคับสมัครต่อ"
 quick_facts:
-  price_range: "฿2,200/เดือน"
+  price_range: "฿2,400-4,700/เดือน"
   class_size: "5-8 คน/กลุ่ม"
   format: ["online"]
   age_range: "4.5-6 ปี"

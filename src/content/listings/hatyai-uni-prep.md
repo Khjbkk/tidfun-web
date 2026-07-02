@@ -34,7 +34,7 @@ faq:
   - question: "มีติว portfolio สำหรับ TCAS รอบ 1 ไหม?"
     answer: "มี คอร์ส portfolio prep 2 เดือน 15,000 บาท ครอบคลุมการเขียน statement การจัดทำ portfolio การสัมภาษณ์ และการเลือกคณะที่เหมาะกับลูก"
 quick_facts:
-  price_range: "฿3,500-6,000/เดือน"
+  price_range: "฿2,800-5,800/เดือน"
   class_size: "12-20 คน/ห้อง"
   format: ["in_person", "online"]
   age_range: "16-18 ปี (ม.5-ม.6)"

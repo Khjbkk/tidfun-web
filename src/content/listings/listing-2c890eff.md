@@ -43,7 +43,7 @@ faq:
   answer: สามารถติดต่อโรงเรียนผ่านทางโทรศัพท์ที่ +6626355088 หรือผ่านทางเฟสบุ๊คที่
     https://www.facebook.com/Sejongkorean.KESB
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,300-7,600/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

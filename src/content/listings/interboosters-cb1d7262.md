@@ -44,7 +44,7 @@ faq:
   answer: การเรียนที่ InterBoosters ครอบคลุมการเตรียมตัวสอบภาษาอังกฤษ เช่น IELTS และ
     TOEFL รวมถึงการพัฒนาทักษะการฟัง พูด อ่าน และเขียน
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿4,500-11,200/เดือน"
   class_size: เช่น 10-15 คน/ห้อง
   format:
   - in_person

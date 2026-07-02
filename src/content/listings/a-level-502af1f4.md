@@ -45,7 +45,7 @@ faq:
   answer: A Level ตั้งอยู่ที่ถนนพญาไท เขตราชเทวี กรุงเทพมหานคร ใกล้กับสถานีรถไฟฟ้า
     BTS พญาไท
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,700-8,200/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

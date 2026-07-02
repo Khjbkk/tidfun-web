@@ -46,7 +46,7 @@ faq:
   answer: สถาบันตั้งอยู่ที่คลองสามวา กรุงเทพมหานคร ในโครงการ The Regent Street ถ.
     พระยาสุเรนทร์
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,400-7,000/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

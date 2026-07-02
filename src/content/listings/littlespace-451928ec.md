@@ -50,7 +50,7 @@ faq:
 - question: 'Q6: โรงเรียนกวดวิชาLittleSpace ตั้งอยู่ที่ไหน?'
   answer: โรงเรียนกวดวิชาLittleSpace ตั้งอยู่ที่เขตบางขุนเทียน กรุงเทพมหานคร สะดวกในการเดินทาง
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿6,500-23,750/คอร์ส"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

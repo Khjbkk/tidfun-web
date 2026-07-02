@@ -1,7 +1,7 @@
 ---
 name_th: โรงเรียนสอนพิเศษบ้านณัฐนันท์
 address_th: 2X4M+8Q7 Unnamed Road ตำบล กำแพงแสน อำเภอกำแพงแสน 73140 ไทย
-city: bangkok
+city: nakhon-pathom
 type: cram_school
 district: ตำบล กำแพงแสน
 lat: 14.0057934
@@ -45,7 +45,7 @@ faq:
 - question: 'Q6: โรงเรียนตั้งอยู่ที่ไหน?'
   answer: โรงเรียนตั้งอยู่ที่อำเภอกำแพงแสน จังหวัดนครปฐม ซึ่งเป็นทำเลที่สะดวกและเหมาะสมสำหรับการเดินทางมาเรียนจากพื้นที่ใกล้เคียง
 quick_facts:
-  price_range: ฿2,500-5,500/เดือน
+  price_range: "฿2,800-6,100/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

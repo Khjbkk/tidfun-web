@@ -49,7 +49,7 @@ faq:
 - question: 'Q6: สถาบันตั้งอยู่ที่ไหน?'
   answer: ตั้งอยู่ที่ชั้น 7 ของอาคาร Pegasus ใน True Digital Park เขตพระโขนง กรุงเทพฯ
 quick_facts:
-  price_range: ประมาณ ฿3,000-7,000/เดือน
+  price_range: "฿4,000-8,600/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

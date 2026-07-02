@@ -2,7 +2,7 @@
 name_th: "TriamAce ติว ม.4 ออนไลน์ เตรียมอุดม-MWIT"
 name_en: "TriamAce Online Tutoring"
 address_th: "ออนไลน์ทั่วประเทศ (ฐานที่กรุงเทพ)"
-city: "online"
+city: bangkok
 phone: ["099-888-7777"]
 website: "https://example.com/triamace"
 email: "hello@triamace.example"
@@ -36,7 +36,7 @@ faq:
   - question: "ทดลองเรียนได้ไหม?"
     answer: "ทดลองเรียนได้ฟรี 1 ครั้ง โดยลงทะเบียนผ่าน LINE @triamace ครูจะส่งลิงก์ Zoom ของห้องเรียนจริงสำหรับเข้าฟังประมาณ 1 ชั่วโมงก่อนตัดสินใจสมัคร"
 quick_facts:
-  price_range: "฿2,500-4,500/เดือน"
+  price_range: "฿2,200-4,300/เดือน"
   class_size: "8-12 คน/กลุ่ม"
   format: ["online"]
   age_range: "13-16 ปี (ม.2-ม.3)"

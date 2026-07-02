@@ -37,7 +37,7 @@ faq:
   - question: "ทดลองเรียนได้ไหม?"
     answer: "ทดลองเรียนได้ฟรี 1 ครั้ง ทั้ง in-person และ online ติดต่อล่วงหน้าผ่าน LINE @cmm1academy เพื่อจัดที่นั่งและเลือกวันที่สะดวก"
 quick_facts:
-  price_range: "฿2,000-8,000/เดือน"
+  price_range: "฿1,700-3,000/เดือน"
   class_size: "10-15 คน/ห้อง"
   format: ["in_person", "online"]
   age_range: "10-12 ปี (ป.5-ป.6)"

@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: สถาบันนี้มีความเชี่ยวชาญในวิชาอะไรบ้าง?'
   answer: สถาบันนี้มีความเชี่ยวชาญในวิชา math, science, english และวิชาอื่น ๆ ที่จำเป็นสำหรับการสอบเข้า
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,800-5,900/เดือน"
   class_size: 1-on-1 หรือ 5-10 คน/ห้อง
   format:
   - in_person

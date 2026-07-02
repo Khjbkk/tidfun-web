@@ -2,7 +2,7 @@
 name_th: Postcadet นครนายก
 address_th: 66 18 ถ. รังสิต - นครนายก ตำบล ท่าช้าง อำเภอเมืองนครนายก นครนายก 26000
   ไทย
-city: pathumthani
+city: nakhon-nayok
 type: cram_school
 district: ตำบล ท่าช้าง
 lat: 14.1997395
@@ -47,7 +47,7 @@ faq:
   answer: มีการจัดกิจกรรมเสริมทักษะต่างๆ เช่น การฝึกการคิดวิเคราะห์และการแก้ปัญหา
     เพื่อเตรียมตัวนักเรียนให้พร้อมสำหรับการสอบ
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿2,900-5,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

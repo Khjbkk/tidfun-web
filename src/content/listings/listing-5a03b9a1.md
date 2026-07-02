@@ -1,7 +1,7 @@
 ---
 name_th: สถาบันกวดวิชาไซน์เซนเตอร์ สาขายะลา
 address_th: 212 ถนน พิพิธภักดี สะเตง อำเภอเมืองยะลา ยะลา 95000 ไทย
-city: bangkok
+city: yala
 type: cram_school
 district: สะเตง
 lat: 6.5541196
@@ -41,7 +41,7 @@ faq:
 - question: 'Q6: มีการสอนออนไลน์หรือไม่?'
   answer: สถาบันนี้มีการเรียนการสอนแบบ in_person และ hybrid เพื่อความสะดวกสบายของนักเรียน
 quick_facts:
-  price_range: ฿2,500-5,500/เดือน
+  price_range: "฿2,800-6,900/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

@@ -48,7 +48,7 @@ faq:
 - question: 'Q6: Kru Giw Tutor ตั้งอยู่ที่ไหน?'
   answer: Kru Giw Tutor ตั้งอยู่ที่อำเภอกำแพงแสน จังหวัดนครปฐม บนถนนองค์การบริหารส่วนจังหวัด
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,800-5,800/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

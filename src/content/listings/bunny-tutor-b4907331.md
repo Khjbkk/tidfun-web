@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: ค่าเรียนที่ Bunny Tutor เท่าไหร่?'
   answer: ค่าเรียนที่นี่ประมาณ ฿2,500-5,500/เดือน ขึ้นอยู่กับรูปแบบการเรียนที่เลือก
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,400-6,700/เดือน"
   class_size: 1-on-1 หรือกลุ่มย่อย
   format:
   - in_person

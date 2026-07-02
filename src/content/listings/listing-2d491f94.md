@@ -41,7 +41,7 @@ faq:
 - question: 'Q6: สามารถติดต่อสถาบันได้อย่างไร?'
   answer: สามารถติดต่อได้ที่หมายเลขโทรศัพท์ +66815377343 หรือเยี่ยมชมเว็บไซต์ที่ http://www.smartbrain.com/
 quick_facts:
-  price_range: ฿2,500-5,000/เดือน
+  price_range: "฿2,600-5,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

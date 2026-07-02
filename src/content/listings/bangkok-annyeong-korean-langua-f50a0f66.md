@@ -43,7 +43,7 @@ faq:
 - question: 'Q6: สถานที่ตั้งอยู่ที่ไหน?'
   answer: ตั้งอยู่ที่อาคาร SIAMSCAPE สยามสแควร์ ซอย 1 เขตปทุมวัน กรุงเทพมหานคร
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,400-7,400/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

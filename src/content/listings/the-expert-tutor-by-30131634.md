@@ -47,7 +47,7 @@ faq:
 - question: 'Q6: สามารถติดต่อสถาบันได้อย่างไร?'
   answer: สามารถติดต่อได้ทางโทรศัพท์ที่หมายเลข +66882671440 หรือผ่านเว็บไซต์ที่ https://line.me/ti/p/oRIjtABjfY
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,000-6,900/เดือน"
   class_size: 1-on-1 หรือกลุ่มเล็ก
   format:
   - in_person

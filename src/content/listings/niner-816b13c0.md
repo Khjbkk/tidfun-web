@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: กวดวิชา NINER ตั้งอยู่ที่ไหน?'
   answer: กวดวิชา NINER ตั้งอยู่ที่เลขที่ 13 ซอย ทุ่งเศรษฐี แขวงดอกไม้ เขตประเวศ กรุงเทพมหานคร
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,500-7,400/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

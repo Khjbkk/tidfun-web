@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: โรงเรียนมีการสอนแบบใดบ้าง?'
   answer: โรงเรียนมีการสอนแบบ in_person และ online เพื่อความสะดวกของนักเรียน
 quick_facts:
-  price_range: ฿2,500-5,000/เดือน
+  price_range: "฿2,900-6,100/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

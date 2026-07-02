@@ -51,7 +51,7 @@ faq:
 - question: 'Q6: EduSmith สาขา MBK มีการเรียนการสอนแบบใด?'
   answer: EduSmith สาขา MBK มีการเรียนการสอนแบบ in-person และ hybrid เพื่อให้เหมาะสมกับความต้องการของนักเรียน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,400-7,100/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

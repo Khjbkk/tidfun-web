@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: การเดินทางไป Maiscale สะดวกไหม?'
   answer: Maiscale ตั้งอยู่ใกล้ MRT พระราม 9 ทำให้การเดินทางสะดวกสำหรับนักเรียนที่ใช้บริการขนส่งสาธารณะ
 quick_facts:
-  price_range: ประมาณ ฿5,000-10,000/เดือน
+  price_range: "฿3,600-7,500/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

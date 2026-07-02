@@ -45,7 +45,7 @@ faq:
 - question: 'Q6: สถานที่ตั้งอยู่ที่ไหน?'
   answer: MathZing Academy ตั้งอยู่ที่ถนนรัฐบำรุง ตำบลธาตุนาเวง อำเภอเมืองสกลนคร สะดวกในการเดินทาง
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,800-6,300/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

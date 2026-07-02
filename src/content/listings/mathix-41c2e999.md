@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: มีการเรียนการสอนออนไลน์หรือไม่?'
   answer: MATHIX มีการเรียนการสอนแบบ in_person และ hybrid เพื่อความสะดวกของนักเรียน
 quick_facts:
-  price_range: ประมาณ ฿3,000-5,000/เดือน
+  price_range: "฿3,200-7,000/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

@@ -49,7 +49,7 @@ faq:
 - question: 'Q6: Tutor Ferry ตั้งอยู่ที่ไหน?'
   answer: Tutor Ferry ตั้งอยู่ที่ซอยพระรามสอง แขวงแสมดำ เขตบางขุนเทียน กรุงเทพมหานคร
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿4,500-9,500/เดือน"
   class_size: 1-on-1
   format:
   - online

@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: JIB Tutor เหมาะสำหรับนักเรียนระดับใด?'
   answer: JIB Tutor เหมาะสำหรับนักเรียนระดับประถมและมัธยมที่ต้องการพัฒนาทักษะเฉพาะด้าน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,300-7,400/เดือน"
   class_size: 1-on-1 หรือกลุ่มเล็ก
   format:
   - in_person

@@ -36,7 +36,7 @@ faq:
   - question: "เปิดสาขาออนไลน์ไหม?"
     answer: "เปิดคลาสออนไลน์ผ่าน Zoom สำหรับเด็กที่ไม่สะดวกเดินทาง เนื้อหาเหมือน in-person ค่าเรียนถูกกว่า 15% และดูคลิป recording ได้"
 quick_facts:
-  price_range: "฿2,500-5,500/เดือน"
+  price_range: "฿3,000-5,900/เดือน"
   class_size: "15-20 คน/ห้อง"
   format: ["in_person", "online"]
   age_range: "10-12 ปี (ป.5-ป.6)"

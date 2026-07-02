@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: ค่าเรียนที่ Big Genius อยู่ในช่วงเท่าไหร่?'
   answer: ค่าเรียนที่ Big Genius อยู่ในช่วงประมาณ ฿3,000-6,000 ต่อเดือน ขึ้นอยู่กับวิชาและระดับการเรียน
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,200-7,000/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

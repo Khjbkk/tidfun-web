@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: สามารถสมัครเรียนต่อปริญญาโทผ่าน Studyinuk ได้อย่างไร?'
   answer: สามารถติดต่อทีมงาน Studyinuk เพื่อรับคำแนะนำและดำเนินการสมัครเรียนต่อปริญญาโทในสถาบันที่ต้องการ
 quick_facts:
-  price_range: ประมาณ ฿10,000-30,000
+  price_range: "฿4,400-9,000/เดือน"
   class_size: 1-on-1
   format:
   - in_person

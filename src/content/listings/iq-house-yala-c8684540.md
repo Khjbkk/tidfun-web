@@ -1,7 +1,7 @@
 ---
 name_th: IQ HOUSE YALA
 address_th: 33-33/1 สะเตง เมือง ยะลา 95000 ไทย
-city: bangkok
+city: yala
 type: cram_school
 district: สะเตง
 lat: 6.5513446
@@ -48,7 +48,7 @@ faq:
 - question: 'Q6: ผู้สอนมีประสบการณ์อย่างไร?'
   answer: ผู้สอนที่ IQ HOUSE YALA เป็นผู้เชี่ยวชาญในแต่ละวิชา มีประสบการณ์ในการสอนและการเตรียมสอบเข้ามหาวิทยาลัย
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿5,750-18,250/คอร์ส"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

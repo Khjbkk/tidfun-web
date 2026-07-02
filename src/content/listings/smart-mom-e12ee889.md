@@ -40,7 +40,7 @@ faq:
 - question: 'Q6: ครูมีประสบการณ์หรือไม่?'
   answer: ครูที่สอนที่ Smart Mom มีประสบการณ์และความเชี่ยวชาญในการสอนคณิตศาสตร์และภาษาอังกฤษ
 quick_facts:
-  price_range: ประมาณ ฿2,000-4,000/เดือน
+  price_range: "฿350-750/ชม."
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

@@ -41,7 +41,7 @@ faq:
 - question: 'Q6: สถานที่ตั้งของสถาบันคือที่ไหน?'
   answer: ตั้งอยู่ที่ 35/29 Noble House Phayathai ถนนพญาไท เขตราชเทวี กรุงเทพฯ
 quick_facts:
-  price_range: ประมาณ ฿8,000-15,000 ต่อคอร์ส
+  price_range: "฿3,900-8,100/เดือน"
   class_size: เช่น 10-15 คน/ห้อง
   format:
   - in_person

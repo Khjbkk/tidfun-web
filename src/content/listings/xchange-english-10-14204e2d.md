@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: การสอบ IELTS และ TOEFL มีความสำคัญอย่างไร?'
   answer: การสอบ IELTS และ TOEFL สำคัญสำหรับการศึกษาต่อในต่างประเทศและการสมัครงานในองค์กรที่ใช้ภาษาอังกฤษ
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿4,000-8,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

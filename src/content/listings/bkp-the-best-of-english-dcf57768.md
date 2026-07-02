@@ -39,7 +39,7 @@ faq:
 - question: 'Q6: ทำไมถึงควรเลือก BKP THE BEST OF ENGLISH?'
   answer: เพราะมีครูผู้สอนที่มีประสบการณ์สูงและวิธีการสอนที่ทันสมัย เหมาะกับการพัฒนาทักษะภาษาอังกฤษ
 quick_facts:
-  price_range: ประมาณ ฿3,000-5,000/เดือน
+  price_range: "฿5,750-17,500/คอร์ส"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

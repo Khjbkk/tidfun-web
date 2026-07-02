@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: Mu Tutor ตั้งอยู่ที่ไหน?'
   answer: Mu Tutor ตั้งอยู่ที่ถนนบุรีวานิช ตำบลพิมาน อำเภอเมืองสตูล จังหวัดสตูล
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,900-5,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

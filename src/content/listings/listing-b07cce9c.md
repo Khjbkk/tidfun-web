@@ -49,7 +49,7 @@ faq:
 - question: 'Q6: โรงเรียนกวดวิชาหทัยพรมีวิชาใดบ้างที่เปิดสอน?'
   answer: เปิดสอนวิชาหลัก เช่น math, science, english และ thai เพื่อเตรียมตัวสอบเข้าโรงเรียนดัง
 quick_facts:
-  price_range: ฿2,500-5,500/เดือน
+  price_range: "฿3,600-7,200/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

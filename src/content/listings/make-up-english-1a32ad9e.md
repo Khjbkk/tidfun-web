@@ -41,7 +41,7 @@ faq:
 - question: 'Q6: มีการเตรียมสอบอะไรบ้าง?'
   answer: มีการเตรียมสอบสำคัญ เช่น IELTS และ TOEFL เพื่อให้นักเรียนพร้อมสำหรับการสอบระดับสากล
 quick_facts:
-  price_range: ฿3,000-5,000/เดือน
+  price_range: "฿7,000-22,000/คอร์ส"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

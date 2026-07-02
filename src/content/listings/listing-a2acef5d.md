@@ -46,7 +46,7 @@ faq:
   answer: ครูผู้สอนมีประสบการณ์และความเชี่ยวชาญในการสอนภาษาอังกฤษโดยเฉพาะการเตรียมสอบ
     IELTS และ TOEFL
 quick_facts:
-  price_range: ฿3,000-6,000/เดือน
+  price_range: "฿3,600-7,800/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

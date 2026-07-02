@@ -48,7 +48,7 @@ faq:
   answer: LogIn Learning สาขาลาดกระบังตั้งอยู่บนถนนฉลองกรุง เขตลาดกระบัง กรุงเทพมหานคร
     สะดวกต่อการเดินทาง
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿13,250-28,250/เทอม"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

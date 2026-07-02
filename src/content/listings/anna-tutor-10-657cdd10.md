@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: ANNA TUTOR ตั้งอยู่ที่ไหน?'
   answer: ANNA TUTOR ตั้งอยู่ที่ซอยมงฟอร์ตวิลล่า 10 อำเภอเมืองเชียงใหม่ ซึ่งเดินทางสะดวกสำหรับผู้ที่อาศัยในเชียงใหม่
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,200-6,800/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

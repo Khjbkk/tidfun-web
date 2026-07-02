@@ -2,7 +2,7 @@
 name_th: "ครูนัท ติวคณิต ม.4 ออนไลน์ — เน้น Olympiad"
 name_en: "Kru Nut Online Math"
 address_th: "ออนไลน์เท่านั้น (ฐานสำนักงานสีลม กรุงเทพ)"
-city: "online"
+city: bangkok
 website: "https://example.com/krunut"
 line_id: "krunutmath"
 founded_year: 2020
@@ -31,7 +31,7 @@ faq:
   - question: "ทดลองเรียนได้ไหม?"
     answer: "ทดลองเรียน 1 ครั้งฟรี โดยทำ entry test 30 นาทีก่อน เพื่อประเมินระดับ ถ้าผ่านเข้าฟัง 60 นาทีของห้องเรียนจริง ครูตัดสินใจรับเข้าหรือไม่หลังจากนั้น"
 quick_facts:
-  price_range: "฿4,500/เดือน"
+  price_range: "฿2,100-4,300/เดือน"
   class_size: "6-8 คน/กลุ่ม"
   format: ["online"]
   age_range: "13-16 ปี (ม.2-ม.3)"

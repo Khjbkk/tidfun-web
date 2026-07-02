@@ -38,7 +38,7 @@ faq:
   - question: "ทดลองเรียนได้ไหม?"
     answer: "ทดลองเรียนได้ 2 ครั้งฟรี ครั้งแรกประเมินระดับนักเรียน ครั้งที่สองเข้าห้องเรียนจริง สามารถนัดผ่านเว็บไซต์หรือ LINE @globalprep"
 quick_facts:
-  price_range: "฿8,000-15,000/เดือน"
+  price_range: "฿5,900-11,400/เดือน"
   class_size: "4-8 คน/กลุ่ม"
   format: ["in_person", "online", "hybrid"]
   age_range: "15-18 ปี (ม.4-ม.6)"

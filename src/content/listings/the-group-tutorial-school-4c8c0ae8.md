@@ -45,7 +45,7 @@ faq:
   answer: ปัจจุบัน The GROUP tutorial school มีการสอนแบบตัวต่อตัวที่สถาบันเท่านั้น
     แต่กำลังพิจารณาเปิดการสอนออนไลน์ในอนาคต
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,000/เดือน
+  price_range: "฿5,500-17,250/คอร์ส"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

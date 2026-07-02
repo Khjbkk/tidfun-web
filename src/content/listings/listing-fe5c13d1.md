@@ -1,7 +1,7 @@
 ---
 name_th: สมาร์ทเบรน จินตคณิต สาขายะลา
 address_th: Unnamed Road อำเภอเมืองยะลา ยะลา 95000 ไทย
-city: bangkok
+city: yala
 type: cram_school
 district: สะเตง
 lat: 6.5514762
@@ -39,7 +39,7 @@ faq:
 - question: 'Q6: มีการจัดกิจกรรมเสริมทักษะอื่นๆ หรือไม่?'
   answer: มีการจัดกิจกรรมเสริมทักษะเพื่อพัฒนาการคิดสร้างสรรค์และการทำงานเป็นทีมของเด็กๆ
 quick_facts:
-  price_range: ฿2,500-5,500/เดือน
+  price_range: "฿350-700/ชม."
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

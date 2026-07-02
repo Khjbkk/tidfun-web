@@ -1,7 +1,7 @@
 ---
 name_th: โรงเรียนกวดวิชา Happy Math พัทยา
 address_th: 240/11-12 ถ. สุขุมวิท อำเภอบางละมุง ชลบุรี 20150 ไทย
-city: bangkok
+city: chonburi
 type: cram_school
 district: เมืองพัทยา
 lat: 12.9394294
@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: มีการสอนออนไลน์หรือไม่?'
   answer: โรงเรียนมีการสอนในรูปแบบออนไลน์เพื่อความสะดวกของนักเรียนที่ไม่สามารถเดินทางมาเรียนที่สถานที่ได้
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,900-6,400/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

@@ -48,7 +48,7 @@ faq:
 - question: 'Q6: ค่าเรียนที่ THE PRO TUTOR ประมาณเท่าไหร่?'
   answer: ค่าเรียนที่ THE PRO TUTOR ประมาณ ฿3,000-6,000/เดือน ขึ้นอยู่กับวิชาและระดับการสอน
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,400-7,800/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

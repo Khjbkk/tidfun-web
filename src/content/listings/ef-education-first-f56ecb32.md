@@ -49,7 +49,7 @@ faq:
   answer: สามารถติดต่อ EF Education First ได้ที่เบอร์โทร +66995355441 หรือเยี่ยมชมเว็บไซต์ที่
     https://www.ef.co.th/
 quick_facts:
-  price_range: ประมาณ ฿10,000-30,000/หลักสูตร
+  price_range: "฿9,700-21,600/เดือน"
   class_size: 1-on-1 หรือกลุ่มเล็ก
   format:
   - in_person

@@ -42,7 +42,7 @@ faq:
 - question: 'Q6: มีรูปแบบการเรียนการสอนแบบใดบ้าง?'
   answer: มีการเรียนการสอนทั้งแบบ in_person และ online เพื่อความสะดวกของนักเรียน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿2,700-5,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

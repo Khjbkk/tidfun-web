@@ -44,7 +44,7 @@ faq:
 - question: 'Q6: มีการเตรียมตัวสอบอะไรบ้าง?'
   answer: มีการเตรียมตัวสอบ SAT, IELTS, TOEFL ซึ่งเป็นการสอบที่สำคัญสำหรับการศึกษาต่อในต่างประเทศ
 quick_facts:
-  price_range: ประมาณ ฿3,000-6,000/เดือน
+  price_range: "฿3,300-7,700/เดือน"
   class_size: 1-on-1 หรือ 5-10 คน/ห้อง
   format:
   - in_person

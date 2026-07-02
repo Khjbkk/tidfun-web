@@ -1,7 +1,7 @@
 ---
 name_th: Smart Learn Tutor
 address_th: 13 ถนนสันติสุข สะเตง อำเภอเมืองยะลา ยะลา 95000 ไทย
-city: bangkok
+city: yala
 type: cram_school
 district: สะเตง
 lat: 6.5447872
@@ -45,7 +45,7 @@ faq:
   answer: เพราะมีการสอนที่เน้นเฉพาะบุคคล การประเมินผลต่อเนื่อง และมีเทคนิคการสอนที่ทันสมัย
     ทำให้นักเรียนได้ผลลัพธ์ที่ดี
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,000/เดือน
+  price_range: "฿2,800-5,400/เดือน"
   class_size: 1-on-1 หรือ 5-10 คน/ห้อง
   format:
   - in_person

@@ -32,7 +32,7 @@ faq:
   - question: "ติดต่อยังไง?"
     answer: "ติดต่อผ่าน LINE id ครูแพร หรือโทร 089-456-7890 ครูจะนัดทดสอบประเมินระดับนักเรียนก่อนเริ่มเรียนจริง 1 ครั้ง ฟรี"
 quick_facts:
-  price_range: "฿1,000-1,500/ชม."
+  price_range: "฿28,500-66,000/เทอม"
   class_size: "1-on-1"
   format: ["in_person", "online", "hybrid"]
   age_range: "15-17 ปี (ม.3-ม.4)"

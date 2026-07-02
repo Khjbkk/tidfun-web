@@ -47,7 +47,7 @@ faq:
 - question: 'Q6: การเรียนที่นี่ช่วยพัฒนาทักษะอะไรบ้าง?'
   answer: ช่วยพัฒนาทักษะการคิดวิเคราะห์และการแก้ปัญหาในวิชาหลัก เช่น math และ science
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,500/เดือน
+  price_range: "฿3,300-6,700/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

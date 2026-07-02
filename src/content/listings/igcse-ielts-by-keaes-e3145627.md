@@ -41,7 +41,7 @@ faq:
   answer: เพราะมีการสอนที่เน้นคุณภาพและความเชี่ยวชาญเฉพาะด้านในการเตรียมสอบ IGCSE
     และ IELTS
 quick_facts:
-  price_range: ประมาณ ฿8,000-15,000/หลักสูตร
+  price_range: "฿6,700-14,900/เดือน"
   class_size: 10-15 คน/ห้อง
   format:
   - in_person

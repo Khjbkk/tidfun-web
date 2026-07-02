@@ -46,7 +46,7 @@ faq:
 - question: 'Q6: ทำไมควรเลือกเรียนที่ Digital Gen Online?'
   answer: เพราะมีการสอนที่ครอบคลุมหลายวิชาและมีการเตรียมสอบสำหรับโรงเรียนชั้นนำ พร้อมวิธีการสอนที่สนุกสนาน
 quick_facts:
-  price_range: ประมาณ ฿2,500-5,000/เดือน
+  price_range: "฿300-600/ชม."
   class_size: 1-on-1
   format:
   - online
