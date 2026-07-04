@@ -15,7 +15,9 @@ export const GET: APIRoute = async ({ site }) => {
 
   const urls: { loc: string; lastmod: string; priority: number }[] = [
     { loc: `${site}`, lastmod: siteLatest, priority: 1.0 },
-    { loc: `${site}search`, lastmod: now, priority: 0.5 },
+    // /search/ is noindex,nofollow — must not appear in sitemap. Its previous
+    // listing (without trailing slash, no less) caused Google to flag it as
+    // "Alternate page with proper canonical" against the canonical /search/.
     { loc: `${site}tool/find-my-tutor/`, lastmod: now, priority: 0.9 },
     { loc: `${site}about/`, lastmod: now, priority: 0.5 },
     { loc: `${site}privacy/`, lastmod: now, priority: 0.3 },
