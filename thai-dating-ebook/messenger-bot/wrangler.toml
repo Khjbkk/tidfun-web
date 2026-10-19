@@ -1,0 +1,41 @@
+name = "chatfarang-messenger-bot"
+main = "src/index.js"
+compatibility_date = "2025-09-27"
+
+# Follow-ups and upsell run every 10 minutes
+[triggers]
+crons = ["*/10 * * * *"]
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "REPLACE_WITH_KV_ID"   # from: npx wrangler kv namespace create STATE
+
+# Serves public/qr/*.png and public/files/* (PDFs) from the same Worker
+[assets]
+directory = "./public"
+
+[observability]
+enabled = true
+
+[vars]
+PAGE_ID = "1339142735957300"
+GRAPH_VERSION = "v24.0"
+PRICE = "129"
+BUMP_PRICE = "49"
+UPSELL_PRICE = "490"
+CODE_DISCOUNT = "10"
+AFFILIATE_CODES = ""            # e.g. "MAY,NID,PLOY" — typed in chat = 10฿ off + credit
+ALLOW_99 = "false"              # "true" during live/retarget promos: customer types 99
+AUTO_APPROVE_SLIPS = "false"    # keep false: admin types #ok after checking the slip
+COMMENT_KEYWORD = "ประโยค"
+PUBLIC_COMMENT_REPLY = "true"
+PROMPTPAY_ID = "ไทยพาณิชย์ (SCB) 264-296793-7"
+PROMPTPAY_NAME = "บริษัท ซิโอร่า จำกัด"
+QR_ENABLED = "false"            # "true" after make_qr.py with the company PromptPay (13-digit tax ID)
+PUBLIC_URL = ""                 # e.g. "https://chatfarang-messenger-bot.<you>.workers.dev"
+QR_URLS = ""                    # optional override, JSON {"129":"https://..."}
+FILES_PATH = "files/8c3b21350e868347"   # PDFs bundled in public/ (unguessable path)
+FILE_EBOOK_URL = ""             # optional override (e.g. Google Drive link)
+FILE_CARDS_URL = ""
+FILE_LEAD_URL = ""
+CARD_SAMPLE_URL = ""            # optional image of one Chat Card shown with the bump offer

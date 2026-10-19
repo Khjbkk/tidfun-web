@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>แฟนฝรั่ง ไม่ต้องรอดวง</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+@page { size: A5; margin: 16mm 14mm 18mm 14mm; }
+@page :first { margin: 0; }
+:root { --ink:#2b2230; --rose:#d94f70; --rose-l:#fde8ee; --navy:#23395b; --sky:#e8f0fb; --mint:#e6f6ef; --green:#1f7a52; --amber:#fff4dc; --amber-d:#9a6a00; --red:#b3261e; --red-l:#fdeceb; --mute:#6d6470; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; background:#fff; color:var(--ink); }
+body { font-family:'Sarabun',sans-serif; font-size:10.5pt; line-height:1.65; }
+h1,h2,h3,h4 { font-family:'Prompt',sans-serif; line-height:1.3; color:var(--navy); margin:0; }
+h2 { font-size:17pt; margin:0 0 4mm; }
+h3 { font-size:12.5pt; margin:5mm 0 2mm; color:var(--rose); }
+h4 { font-size:11pt; margin:3mm 0 1mm; }
+p { margin:0 0 2.5mm; }
+ul,ol { margin:0 0 3mm; padding-left:6mm; }
+li { margin-bottom:1mm; }
+b { color:var(--navy); }
+.chapter { page-break-before:always; }
+.kicker { font-family:'Prompt'; font-size:9pt; letter-spacing:.08em; color:var(--rose); font-weight:600; margin-bottom:1mm; }
+.lead { font-size:11.5pt; color:#4a3f4e; }
+.box { border-radius:3mm; padding:3.5mm 4.5mm; margin:3mm 0 4mm; break-inside:avoid; }
+.box.tip { background:var(--mint); border-left:1.2mm solid var(--green); }
+.box.warn { background:var(--red-l); border-left:1.2mm solid var(--red); }
+.box.note { background:var(--amber); border-left:1.2mm solid var(--amber-d); }
+.box.info { background:var(--sky); border-left:1.2mm solid var(--navy); }
+.box .t { font-family:'Prompt'; font-weight:600; display:block; margin-bottom:1mm; }
+.script { background:#faf7fb; border:0.3mm solid #e4dbe8; border-radius:2.5mm; padding:2.5mm 3.5mm; margin:2mm 0; break-inside:avoid; }
+.script .en { font-family:'Prompt'; font-weight:600; color:var(--navy); font-size:10.5pt; }
+.script .th { color:var(--mute); font-size:9.5pt; }
+.script .why { font-size:9pt; color:var(--rose); }
+table { width:100%; border-collapse:collapse; margin:2mm 0 4mm; font-size:9.3pt; break-inside:avoid; }
+th { background:var(--navy); color:#fff; font-family:'Prompt'; font-weight:600; text-align:left; padding:1.8mm 2mm; }
+td { border-bottom:0.3mm solid #e6e0ea; padding:1.8mm 2mm; vertical-align:top; }
+tr:nth-child(even) td { background:#fbf9fc; }
+.check li { list-style:none; margin-left:-6mm; padding-left:6mm; position:relative; }
+.check li::before { content:"☐"; position:absolute; left:0; color:var(--rose); }
+.num { display:inline-block; width:6mm; height:6mm; border-radius:50%; background:var(--rose); color:#fff; text-align:center; font-family:'Prompt'; font-size:9pt; line-height:6mm; margin-right:1.5mm; }
+.small { font-size:8.8pt; color:var(--mute); }
+
+/* cover */
+.cover { width:148mm; height:210mm; position:relative; overflow:hidden; background:linear-gradient(160deg,#23395b 0%,#4b3a6e 55%,#d94f70 100%); color:#fff; padding:20mm 14mm; }
+.cover .tag { font-family:'Prompt'; font-size:9pt; background:rgba(255,255,255,.16); display:inline-block; padding:1.2mm 3.5mm; border-radius:10mm; letter-spacing:.05em; }
+.cover h1 { color:#fff; font-size:34pt; line-height:1.15; margin:10mm 0 4mm; font-weight:700; }
+.cover h1 span { color:#ffd3de; }
+.cover .sub { font-size:12.5pt; line-height:1.55; max-width:115mm; opacity:.95; }
+.cover .bul { margin-top:9mm; font-family:'Prompt'; font-size:10.5pt; }
+.cover .bul div { margin-bottom:2.2mm; }
+.cover .heart { position:absolute; right:-18mm; top:70mm; font-size:150pt; opacity:.09; font-family:'Prompt'; }
+.cover .foot { position:absolute; bottom:14mm; left:14mm; right:14mm; font-size:9pt; opacity:.8; border-top:0.3mm solid rgba(255,255,255,.35); padding-top:3mm; }
+
+.toc li { list-style:none; margin-left:-6mm; display:flex; justify-content:space-between; border-bottom:0.3mm dotted #cfc6d4; padding:1.5mm 0; font-family:'Prompt'; font-size:10pt; }
+.toc li span:first-child b { color:var(--rose); margin-right:2mm; }
+.day { display:grid; grid-template-columns:18mm 1fr; gap:2mm; border-bottom:0.3mm solid #eee; padding:1.5mm 0; font-size:9.5pt; break-inside:avoid; }
+.day b { color:var(--rose); font-family:'Prompt'; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="tag">คู่มือ 30 วัน · ฉบับปลอดภัย ไม่โดนหลอก</div>
+  <h1>แฟนฝรั่ง<br><span>ไม่ต้องรอดวง</span></h1>
+  <div class="sub">จากโปรไฟล์ที่ไม่มีใครทัก สู่แชทที่คุยต่อได้จริง และเดทแรกกับคนที่จริงจัง — แม้ภาษาอังกฤษจะยังไม่เก่ง</div>
+  <div class="bul">
+    <div>✓ ประโยคภาษาอังกฤษ ก๊อปวางได้ทันที 60+ ประโยค</div>
+    <div>✓ เทมเพลต Bio โปรไฟล์ 6 แบบ + สูตรเลือกรูป</div>
+    <div>✓ วิธีคัดคนจริงจัง ออกจากคนแค่หาเพื่อนเล่น</div>
+    <div>✓ เช็กลิสต์กันมิจฉาชีพหลอกรัก (Romance Scam)</div>
+    <div>✓ แผนลงมือทำ 30 วัน ทีละวัน</div>
+  </div>
+  <div class="heart">♥</div>
+  <div class="foot">เขียนสำหรับผู้หญิงไทยที่อยากมีความสัมพันธ์จริงจังกับชาวต่างชาติ · ใช้ได้กับ Tinder, Bumble, Hinge, ThaiCupid, ThaiFriendly</div>
+</section>
+
+<!-- TOC -->
+<section class="chapter">
+  <div class="kicker">สารบัญ</div>
+  <h2>ในเล่มนี้มีอะไรบ้าง</h2>
+  <ul class="toc">
+    <li><span><b>00</b>ก่อนเริ่ม: เล่มนี้เขียนให้ใคร</span><span>3</span></li>
+    <li><span><b>01</b>ความจริงที่ต้องรู้ก่อน (เลิกเชื่อ 5 ความเข้าใจผิด)</span><span>4</span></li>
+    <li><span><b>02</b>เลือกแอปให้ถูกกับเป้าหมาย</span><span>6</span></li>
+    <li><span><b>03</b>โปรไฟล์ที่ฝรั่งจริงจังอยากปัดขวา</span><span>8</span></li>
+    <li><span><b>04</b>แชทแรกจนถึงนัดเจอ: สคริปต์ก๊อปวาง</span><span>12</span></li>
+    <li><span><b>05</b>คัดคนจริงจัง vs คนแค่ผ่านมา</span><span>18</span></li>
+    <li><span><b>06</b>เกราะกันมิจฉาชีพหลอกรัก</span><span>20</span></li>
+    <li><span><b>07</b>เดทแรก: ปลอดภัยและเป็นตัวเอง</span><span>23</span></li>
+    <li><span><b>08</b>ช่องว่างวัฒนธรรม: เงิน ครอบครัว สินสอด</span><span>25</span></li>
+    <li><span><b>09</b>แผน 30 วัน ลงมือทำทีละวัน</span><span>29</span></li>
+    <li><span><b>10</b>โบนัส: คลังประโยคบอกความรู้สึก</span><span>31</span></li>
+  </ul>
+  <div class="box note"><span class="t">วิธีใช้เล่มนี้ให้ได้ผล</span>อ่านบทที่ 1–3 ให้จบในวันแรก แล้วทำตามแผน 30 วันในบทที่ 9 ทีละวัน บทที่ 4 ใช้เป็น "คลังประโยค" เปิดดูขณะแชทได้เลย</div>
+</section>
+
+<!-- CH 0 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 00</div>
+  <h2>เล่มนี้เขียนให้ใคร</h2>
+  <p class="lead">ถ้าคุณพยักหน้าตามได้อย่างน้อย 3 ข้อ เล่มนี้เขียนมาเพื่อคุณ</p>
+  <ul class="check">
+    <li>อยากมีแฟนต่างชาติแบบจริงจัง ไม่ได้อยากแค่คุยเล่นฆ่าเวลา</li>
+    <li>เคยลงแอปหาคู่แล้ว แต่แมตช์น้อย หรือแมตช์แล้วคุยได้ 2–3 ข้อความก็เงียบ</li>
+    <li>ภาษาอังกฤษพอไปได้ แต่ไม่มั่นใจ กลัวพิมพ์ผิด กลัวดูไม่ฉลาด</li>
+    <li>เจอแต่คนที่ชวนไปห้องตั้งแต่วันแรก จนเริ่มเหนื่อย</li>
+    <li>กลัวโดนหลอกเอาเงิน เพราะเห็นข่าวบ่อย</li>
+    <li>ไม่อยากถูกมองว่า "หาฝรั่งเพราะเงิน" ทั้งที่จริงแค่อยากเจอคนที่ใช่</li>
+  </ul>
+  <div class="box info"><span class="t">สิ่งที่เล่มนี้ "จะไม่" สอน</span>เล่มนี้ไม่สอนเทคนิคหลอกล่อ ไม่สอนวิธีทำให้ใครหลง และไม่สัญญาว่าจะได้แฟนภายในกี่วัน สิ่งที่สอนคือทำให้คนที่ "ใช่" เจอคุณง่ายขึ้น คุยกับคุณได้สนุกขึ้น และกรองคนที่ "ไม่ใช่" ออกไปเร็วขึ้น โดยที่คุณปลอดภัยตลอดทาง</div>
+  <h3>ความสัมพันธ์ที่ดีเริ่มจาก 3 อย่าง</h3>
+  <p><span class="num">1</span><b>มองเห็นได้</b> — โปรไฟล์ที่บอกว่าคุณเป็นใคร ไม่ใช่แค่รูปสวย</p>
+  <p><span class="num">2</span><b>คุยต่อได้</b> — แชทที่มีคำถามกลับ มีเรื่องเล่า ไม่ใช่สัมภาษณ์งาน</p>
+  <p><span class="num">3</span><b>คัดกรองเป็น</b> — กล้าถามเจตนาตั้งแต่ต้น และรู้สัญญาณอันตราย</p>
+  <p>ทุกบทในเล่มนี้สร้างขึ้นบน 3 เสานี้</p>
+</section>
+
+<!-- CH 1 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 01</div>
+  <h2>ความจริงที่ต้องรู้ก่อน</h2>
+  <p class="lead">หลายคนติดอยู่ที่เดิม เพราะเชื่อเรื่องที่ไม่จริง มาเคลียร์กันก่อน</p>
+
+  <h3>ความเข้าใจผิดที่ 1: "ต้องพูดอังกฤษเก่งก่อนถึงจะเริ่มได้"</h3>
+  <p>ไม่จริง ในช่วงแชท สิ่งที่สำคัญกว่าแกรมมาร์คือ <b>ความอบอุ่นและความอยากรู้</b> ประโยคสั้น ๆ ถูกต้อง 80% แต่มีคำถามกลับ ดีกว่าประโยคยาวสวยแต่ไม่ชวนคุยต่อ ชาวต่างชาติส่วนใหญ่ที่ใช้แอปในไทยรู้อยู่แล้วว่าอังกฤษไม่ใช่ภาษาแม่ของคุณ</p>
+
+  <h3>ความเข้าใจผิดที่ 2: "ฝรั่งทุกคนรวย/ทุกคนเจ้าชู้"</h3>
+  <p>ชาวต่างชาติในไทยมีตั้งแต่นักท่องเที่ยว 2 สัปดาห์ นักเรียน ครูสอนภาษา ดิจิทัลโนแมด ไปจนถึงคนที่ทำงานและอยู่ไทยถาวร การเหมารวมทั้งทางดีและร้ายทำให้คุณคัดคนผิด <b>ให้ดูที่พฤติกรรม ไม่ใช่สัญชาติ</b></p>
+
+  <h3>ความเข้าใจผิดที่ 3: "ยิ่งแมตช์เยอะยิ่งดี"</h3>
+  <p>แมตช์ 100 คนที่ไม่เคยคุยต่อ มีค่าน้อยกว่าแมตช์ 10 คนที่มีเป้าหมายตรงกัน เล่มนี้จะสอนให้ <b>ปัดน้อยลง แต่คุยลึกขึ้น</b></p>
+
+  <h3>ความเข้าใจผิดที่ 4: "ถามว่าหาอะไรตั้งแต่แรก จะดูใจร้อน"</h3>
+  <p>ในวัฒนธรรมตะวันตกหลายประเทศ การถามตรง ๆ อย่างสุภาพเรื่องเป้าหมายเป็นเรื่องปกติ และคนที่จริงจังจะ <b>ชอบ</b> ที่คุณถาม คนที่หงุดหงิดกับคำถามนี้ คือคนที่คุณควรกรองออกอยู่แล้ว (สคริปต์อยู่ในบทที่ 5)</p>
+
+  <h3>ความเข้าใจผิดที่ 5: "ถ้าเขาส่งของขวัญ ส่งเงินมาให้ แปลว่าจริงใจ"</h3>
+  <p>นี่คือกับดักที่แพงที่สุด มิจฉาชีพหลอกรักมักเริ่มจากการ "ให้" ก่อนเสมอ เพื่อสร้างความไว้ใจ แล้วค่อยขอคืนเป็นเท่าทวีคูณ บทที่ 6 มีวิธีสังเกตแบบละเอียด</p>
+
+  <div class="box tip"><span class="t">เปลี่ยนคำถามในใจ</span>จาก "ทำยังไงให้ฝรั่งชอบ" เป็น <b>"ทำยังไงให้คนที่ใช่ เจอฉันเร็วขึ้น และคนที่ไม่ใช่ ออกไปเร็วขึ้น"</b> — คำถามนี้ทำให้คุณมั่นใจขึ้นทันที เพราะคุณเป็นคนเลือก ไม่ใช่รอถูกเลือก</div>
+</section>
+
+<!-- CH 2 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 02</div>
+  <h2>เลือกแอปให้ถูกกับเป้าหมาย</h2>
+  <p class="lead">แอปแต่ละตัวมี "บรรยากาศ" ต่างกัน ลงผิดแอปก็เหมือนไปหาคู่ชีวิตในผับ</p>
+  <table>
+    <tr><th>แอป</th><th>เหมาะกับ</th><th>ข้อควรรู้</th></tr>
+    <tr><td><b>Tinder</b></td><td>คนเยอะที่สุดในไทย ทั้งคนไทยและต่างชาติ</td><td>มีคนหลากหลายมาก ต้องคัดกรองเยอะ โปรไฟล์ต้องบอกเป้าหมายชัด</td></tr>
+    <tr><td><b>Bumble</b></td><td>ผู้หญิงอยากเป็นฝ่ายเลือกและทักก่อน</td><td>ผู้หญิงต้องทักภายใน 24 ชม. ช่วยกรองคนสแปม ผู้ใช้มักเป็นคนทำงานในเมือง</td></tr>
+    <tr><td><b>Hinge</b></td><td>คนที่อยากเดทจริงจัง</td><td>โปรไฟล์ตอบคำถาม (prompts) ทำให้เริ่มคุยง่าย ผู้ใช้ในไทยยังน้อยกว่า</td></tr>
+    <tr><td><b>ThaiCupid</b></td><td>คนต่างชาติที่ตั้งใจหาคู่คนไทยแบบจริงจัง</td><td>มีคนที่ยังอยู่ต่างประเทศเยอะ ระวังเป็นพิเศษเรื่องการถูกชวนย้ายไปคุย LINE แล้วขอเงิน</td></tr>
+    <tr><td><b>ThaiFriendly</b></td><td>คนต่างชาติที่อยู่หรือกำลังจะมาไทย</td><td>คนเยอะ บรรยากาศหลากหลาย ต้องกรองเจตนาดี ๆ</td></tr>
+  </table>
+  <div class="box note"><span class="t">คำแนะนำ: เริ่มที่ 2 แอปพอ</span>
+  <b>ถ้าอยู่กรุงเทพฯ/เมืองใหญ่:</b> Bumble + Tinder<br>
+  <b>ถ้าอยู่ต่างจังหวัด หรืออยากคุยกับคนที่อยู่ต่างประเทศ:</b> ThaiCupid + Tinder (ตั้ง Passport/ตำแหน่งไว้ที่เมืองที่ชาวต่างชาติอยู่เยอะ)<br>
+  ลงทีละหลายแอปแล้วตอบไม่ทัน แย่กว่าลง 2 แอปแล้วตอบดี</div>
+
+  <h3>ตั้งค่าที่คนส่วนใหญ่ลืม</h3>
+  <ul>
+    <li><b>ภาษาแอป:</b> ตั้งเป็นอังกฤษ จะได้ชินกับคำศัพท์</li>
+    <li><b>ระยะ:</b> เมืองใหญ่ 10–25 กม. ต่างจังหวัด 50–80 กม.</li>
+    <li><b>ช่วงอายุ:</b> ตั้งตามที่คุณสบายใจจริง ๆ ไม่ใช่ตามที่คนอื่นบอกว่า "ควร"</li>
+    <li><b>ยืนยันตัวตน (Photo Verification):</b> ทำทุกแอปที่มี โปรไฟล์ที่ยืนยันแล้วได้รับความไว้ใจมากกว่า</li>
+    <li><b>เป้าหมายความสัมพันธ์ (Relationship goals):</b> เลือก "Long-term partner" ถ้าแอปมีให้เลือก</li>
+  </ul>
+  <div class="box tip"><span class="t">เวลาทอง</span>ช่วงที่คนออนไลน์เยอะ คือ <b>อาทิตย์ 19:00–22:00</b> และ <b>วันธรรมดา 20:00–22:00</b> เปิดแอปช่วงนี้ แมตช์มีโอกาสตอบเร็วกว่า</div>
+</section>
+
+<!-- CH 3 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 03</div>
+  <h2>โปรไฟล์ที่คนจริงจังอยากปัดขวา</h2>
+  <p class="lead">โปรไฟล์คือ "หน้าร้าน" คนจริงจังอ่าน Bio ส่วนคนแค่ผ่านมาดูแค่รูป ทำให้ทั้งสองอย่างทำงาน</p>
+
+  <h3>สูตรรูป 5 ใบ</h3>
+  <table>
+    <tr><th>ใบที่</th><th>รูปแบบ</th><th>ทำไม</th></tr>
+    <tr><td>1</td><td>หน้าชัด ยิ้มเห็นฟัน แสงธรรมชาติ ไม่ใส่แว่นดำ ฟิลเตอร์น้อย</td><td>รูปแรกตัดสินเกือบทุกอย่าง ความจริงใจชนะความสวยแบบแต่งจัด</td></tr>
+    <tr><td>2</td><td>เต็มตัว แต่งตัวแบบที่ใส่จริงในวันหยุด</td><td>ลดความรู้สึก "รูปไม่ตรงปก"</td></tr>
+    <tr><td>3</td><td>ทำกิจกรรมที่ชอบ (ทำอาหาร วิ่ง คาเฟ่ เดินป่า)</td><td>เป็น "หัวข้อเปิดแชท" ให้อีกฝ่าย</td></tr>
+    <tr><td>4</td><td>กับเพื่อน/ครอบครัว (คุณต้องหาตัวเองเจอง่าย)</td><td>บอกว่ามีสังคม มีคนรอบตัว</td></tr>
+    <tr><td>5</td><td>ที่เที่ยว/ที่ทำงาน (ไม่เห็นชื่อบริษัท)</td><td>บอกไลฟ์สไตล์ และเรื่องให้ถาม</td></tr>
+  </table>
+  <div class="box warn"><span class="t">รูปที่ควรเลี่ยง</span>รูปเซลฟี่ในรถ/ห้องน้ำทั้งหมด · รูปเปิดเผยร่างกายมาก (ดึงดูดคนที่ไม่จริงจัง) · รูปถือเงิน/ของแบรนด์เนม (ดึงดูดมิจฉาชีพและคนตัดสินผิด) · รูปที่เห็นทะเบียนรถ บ้านเลขที่ ชื่อที่ทำงาน</div>
+
+  <h3>สูตร Bio 3 บรรทัด</h3>
+  <p><b>บรรทัด 1 — คุณเป็นใคร</b> (งาน/ไลฟ์สไตล์ แบบสั้น)<br>
+  <b>บรรทัด 2 — สิ่งที่ทำให้คุณพิเศษ</b> (เรื่องเฉพาะตัว 1 อย่าง)<br>
+  <b>บรรทัด 3 — สิ่งที่มองหา</b> (บอกเป้าหมายแบบนุ่มนวล + คำชวนคุย)</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">บทที่ 03 · ต่อ</div>
+  <h2>เทมเพลต Bio 6 แบบ (ก๊อปแล้วแก้ได้เลย)</h2>
+
+  <div class="script"><div class="en">Office girl by day, home cook by night 🍜<br>I make the best tom yum in my building (probably).<br>Looking for something real. Tell me your favorite Thai dish!</div>
+  <div class="th">สาวออฟฟิศกลางวัน แม่ครัวตอนกลางคืน ต้มยำของฉันอร่อยที่สุดในตึก (มั้ง) มองหาอะไรที่จริงจัง บอกหน่อยว่าชอบอาหารไทยอะไร</div>
+  <div class="why">เหมาะกับ: คนทำงานออฟฟิศ ชอบทำอาหาร</div></div>
+
+  <div class="script"><div class="en">Nurse 🩺 | Weekend hiker | Dog mom to Mali 🐶<br>I take care of people all week — now looking for someone to take care of each other.<br>Not here for games.</div>
+  <div class="th">พยาบาล เดินป่าวันหยุด แม่ของน้องหมามะลิ ดูแลคนอื่นมาทั้งสัปดาห์ อยากเจอคนที่ดูแลกันและกัน ไม่ได้มาเล่น ๆ</div>
+  <div class="why">เหมาะกับ: งานบริการ/สุขภาพ ต้องการบอกว่าจริงจังชัด ๆ</div></div>
+
+  <div class="script"><div class="en">Small business owner from Udon ☀️<br>My English is still growing, but my heart is big 😊<br>Looking for a long-term partner. Patient people welcome!</div>
+  <div class="th">เจ้าของธุรกิจเล็ก ๆ จากอุดร ภาษาอังกฤษยังพัฒนาอยู่ แต่ใจกว้าง มองหาคู่ระยะยาว ใครใจเย็นยินดีต้อนรับ</div>
+  <div class="why">เหมาะกับ: คนที่ไม่มั่นใจภาษา — เปลี่ยนจุดอ่อนเป็นเสน่ห์</div></div>
+
+  <div class="script"><div class="en">Single mom of a funny 7-year-old 💛<br>Family first, but I'm ready for my own love story too.<br>If you like kids and calm weekends, say hi.</div>
+  <div class="th">คุณแม่เลี้ยงเดี่ยวของเด็ก 7 ขวบตัวตลก ครอบครัวมาก่อน แต่ก็พร้อมมีเรื่องรักของตัวเอง ถ้าชอบเด็กและวันหยุดสบาย ๆ ทักมาเลย</div>
+  <div class="why">เหมาะกับ: คุณแม่เลี้ยงเดี่ยว — บอกตั้งแต่ต้น กรองคนไม่พร้อมออกเอง</div></div>
+
+  <div class="script"><div class="en">Coffee addict ☕ | Learning to swim (slowly)<br>I laugh too loud and I'm proud of it.<br>Seeking a kind man who wants to build something real.</div>
+  <div class="th">ติดกาแฟ กำลังหัดว่ายน้ำ (ช้า ๆ) หัวเราะเสียงดังและภูมิใจ มองหาผู้ชายใจดีที่อยากสร้างอะไรจริงจัง</div>
+  <div class="why">เหมาะกับ: บุคลิกสดใส อยากให้คนเห็นความเป็นตัวเอง</div></div>
+
+  <div class="script"><div class="en">Teacher 📚 who still loves cartoons.<br>Two truths and a lie: I've climbed Doi Inthanon, I can't eat spicy, I speak 3 languages.<br>Guess the lie 👀</div>
+  <div class="th">ครูที่ยังชอบดูการ์ตูน เกมจริง 2 โกหก 1: เคยปีนดอยอินทนนท์ กินเผ็ดไม่ได้ พูดได้ 3 ภาษา ทายสิว่าข้อไหนโกหก</div>
+  <div class="why">เหมาะกับ: อยากให้คนทักมาก่อน — เกมนี้ทำให้ทักง่ายมาก</div></div>
+
+  <div class="box tip"><span class="t">กฎทอง</span>ทุก Bio ต้องมี <b>"ตะขอ" 1 อัน</b> ที่อีกฝ่ายหยิบไปเปิดแชทได้ (อาหาร หมา เกมทายใจ งานอดิเรก) และบอกเป้าหมาย <b>ด้วยน้ำเสียงบวก</b> เช่น "Looking for something real" แทน "No players! No sex!" ซึ่งฟังดูเหนื่อยและขับไล่คนดีไปด้วย</div>
+</section>
+
+<!-- CH 4 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 04</div>
+  <h2>สคริปต์แชท: ข้อความแรก</h2>
+  <p class="lead">อย่าทักแค่ "Hi" — มันคือข้อความที่ถูกเมินมากที่สุด ทักโดยหยิบอะไรจากโปรไฟล์เขามาพูด</p>
+
+  <h3>สูตร: สังเกต + คำถาม</h3>
+  <div class="script"><div class="en">I see you've been to Japan! What was your favorite city?</div><div class="th">เห็นว่าเคยไปญี่ปุ่น ชอบเมืองไหนที่สุด</div></div>
+  <div class="script"><div class="en">Your dog looks so happy 😄 What's his name?</div><div class="th">น้องหมาดูมีความสุขมาก ชื่ออะไรเหรอ</div></div>
+  <div class="script"><div class="en">You play guitar? I've always wanted to learn. How long have you been playing?</div><div class="th">เล่นกีตาร์ด้วยเหรอ อยากหัดมานานแล้ว เล่นมานานแค่ไหนแล้ว</div></div>
+  <div class="script"><div class="en">How long have you been in Thailand? Do you like it here so far?</div><div class="th">อยู่ไทยมานานแค่ไหนแล้ว ชอบที่นี่ไหม</div></div>
+  <div class="script"><div class="en">Okay, important question: have you tried som tam yet? 🌶️</div><div class="th">คำถามสำคัญ: เคยกินส้มตำหรือยัง</div><div class="why">ใช้ได้กับทุกคน เปิดเรื่องอาหาร = คุยยาวได้</div></div>
+  <div class="script"><div class="en">Your profile made me smile. What's something you're excited about this week?</div><div class="th">โปรไฟล์ทำให้ยิ้มได้ สัปดาห์นี้มีอะไรที่ตื่นเต้นรออยู่บ้าง</div><div class="why">ใช้เมื่อโปรไฟล์เขาไม่มีอะไรให้หยิบ</div></div>
+
+  <h3>ตอบข้อความแรกที่เขาทักมา</h3>
+  <div class="script"><div class="en">Haha thank you! You have good taste 😄 What made you swipe right?</div><div class="th">ขอบคุณนะ ตาถึงนี่ อะไรทำให้ปัดขวาเหรอ</div></div>
+  <div class="script"><div class="en">Hi! Nice to meet you. I'm good, just finished work. How's your day going?</div><div class="th">สวัสดี ยินดีที่ได้รู้จัก สบายดี เพิ่งเลิกงาน วันนี้เป็นไงบ้าง</div></div>
+
+  <div class="box info"><span class="t">กฎ 1 ต่อ 1</span>ทุกครั้งที่ตอบ ให้มี <b>1 เรื่องของคุณ + 1 คำถามกลับ</b> ถ้าตอบแค่ "Yes" "Good" "Haha" แชทจะตายใน 3 ข้อความ</div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">บทที่ 04 · ต่อ</div>
+  <h2>สคริปต์แชท: คุยให้ไหลต่อ</h2>
+
+  <h3>ชวนเล่าเรื่องชีวิต</h3>
+  <div class="script"><div class="en">What do you do for work? Do you enjoy it?</div><div class="th">ทำงานอะไร ชอบงานที่ทำไหม</div></div>
+  <div class="script"><div class="en">What does a perfect Sunday look like for you?</div><div class="th">วันอาทิตย์ที่สมบูรณ์แบบของคุณเป็นยังไง</div></div>
+  <div class="script"><div class="en">Where did you grow up? What was it like?</div><div class="th">โตที่ไหน ที่นั่นเป็นยังไง</div></div>
+  <div class="script"><div class="en">What's one thing on your bucket list?</div><div class="th">มีอะไรที่อยากทำสักครั้งในชีวิตบ้าง</div></div>
+  <div class="script"><div class="en">Are you close with your family?</div><div class="th">สนิทกับครอบครัวไหม</div><div class="why">คำถามนี้บอกอะไรได้เยอะมากเรื่องค่านิยม</div></div>
+
+  <h3>เล่าเรื่องตัวเองแบบน่าสนใจ</h3>
+  <div class="script"><div class="en">I work in [marketing / a hospital / my family's shop]. The best part is [meeting people]. The hardest part is [Monday mornings 😅].</div><div class="th">ฉันทำงาน... ส่วนที่ดีที่สุดคือ... ส่วนที่ยากที่สุดคือ...</div></div>
+  <div class="script"><div class="en">I'm from [Khon Kaen]. It's famous for [food and friendly people]. Have you been to Isaan?</div><div class="th">ฉันมาจากขอนแก่น ที่นั่นขึ้นชื่อเรื่อง... เคยไปอีสานไหม</div></div>
+  <div class="script"><div class="en">On weekends I usually [visit my mom / go to the market / binge Netflix]. Very exciting life, I know 😂</div><div class="th">วันหยุดปกติจะ... ชีวิตตื่นเต้นมากเลยใช่ไหม</div><div class="why">อารมณ์ขันแซวตัวเองเล็กน้อย = ดูมั่นใจ</div></div>
+
+  <h3>เมื่อภาษาไม่พอ (ใช้บ่อยมาก!)</h3>
+  <div class="script"><div class="en">Sorry, my English isn't perfect. Can you say that in a simpler way?</div><div class="th">ขอโทษนะ ภาษาอังกฤษยังไม่เก่ง พูดง่ายกว่านี้ได้ไหม</div></div>
+  <div class="script"><div class="en">I'm not sure I understand. Do you mean ...?</div><div class="th">ไม่แน่ใจว่าเข้าใจถูกไหม หมายถึง... ใช่ไหม</div></div>
+  <div class="script"><div class="en">Give me a second, I'm using a translator 😅</div><div class="th">รอแป๊บนะ กำลังใช้แอปแปล</div><div class="why">พูดตรง ๆ ดีกว่าแอบใช้แล้วตอบแปลก ๆ</div></div>
+  <div class="script"><div class="en">Can you teach me a word in your language? I'll teach you one in Thai!</div><div class="th">สอนคำในภาษาคุณให้หน่อยได้ไหม เดี๋ยวสอนภาษาไทยคืน</div><div class="why">เปลี่ยนจุดอ่อนเป็นเกม — ได้ผลมาก</div></div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">บทที่ 04 · ต่อ</div>
+  <h2>สคริปต์แชท: ชวนคุยลึก & ชวนเจอ</h2>
+
+  <h3>ขยับจากคุยเล่น สู่คุยจริง (หลังคุยกัน 3–5 วัน)</h3>
+  <div class="script"><div class="en">What made you want to live in Thailand?</div><div class="th">อะไรทำให้อยากมาอยู่เมืองไทย</div></div>
+  <div class="script"><div class="en">What's the most important thing to you in a relationship?</div><div class="th">อะไรสำคัญที่สุดสำหรับคุณในความสัมพันธ์</div></div>
+  <div class="script"><div class="en">Where do you see yourself in a few years? Here or back home?</div><div class="th">อีกไม่กี่ปีเห็นตัวเองอยู่ที่ไหน ที่นี่หรือกลับประเทศ</div><div class="why">คำถามสำคัญ บอกได้ว่าเขาอยู่ไทยระยะยาวหรือไม่</div></div>
+
+  <h3>ชวนนัดเจอ (ภายใน 1–2 สัปดาห์)</h3>
+  <div class="script"><div class="en">I'm really enjoying talking with you. Would you like to grab a coffee this weekend?</div><div class="th">คุยกับคุณสนุกมาก สุดสัปดาห์นี้ไปกินกาแฟกันไหม</div></div>
+  <div class="script"><div class="en">There's a nice café near [Central / BTS Ari]. How about Saturday afternoon?</div><div class="th">มีคาเฟ่น่ารักใกล้... วันเสาร์บ่ายดีไหม</div><div class="why">เสนอสถานที่สาธารณะ ช่วงกลางวัน = ปลอดภัย</div></div>
+  <div class="script"><div class="en">Before we meet, could we do a quick video call? I just like to see who I'm talking to 😊</div><div class="th">ก่อนเจอ วิดีโอคอลสั้น ๆ ได้ไหม อยากเห็นหน้าคนที่คุยด้วย</div><div class="why">กันโปรไฟล์ปลอม 90% — คนจริงไม่ปฏิเสธ</div></div>
+
+  <h3>ปฏิเสธอย่างสุภาพ (ไม่ต้องรู้สึกผิด)</h3>
+  <div class="script"><div class="en">Thank you for your time, but I don't think we're looking for the same thing. Good luck! 🙏</div><div class="th">ขอบคุณที่คุยด้วยนะ แต่คิดว่าเรามองหาสิ่งที่ต่างกัน ขอให้โชคดี</div></div>
+  <div class="script"><div class="en">I'm not comfortable meeting at your place. A café is better for me.</div><div class="th">ไม่สะดวกไปเจอที่บ้านคุณ ขอเป็นคาเฟ่ดีกว่า</div></div>
+  <div class="script"><div class="en">I'd rather not send photos like that. I hope you understand.</div><div class="th">ขอไม่ส่งรูปแบบนั้นนะ หวังว่าจะเข้าใจ</div></div>
+
+  <div class="box warn"><span class="t">อย่าคุยนานเกินไปโดยไม่เจอ</span>ถ้าเขาอยู่เมืองเดียวกัน แต่คุยกันเกิน 3 สัปดาห์แล้วยังเลี่ยงวิดีโอคอลและเลี่ยงนัดเจอ — นั่นคือสัญญาณ ไม่ใช่ความขี้อาย</div>
+</section>
+
+<!-- CH 5 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 05</div>
+  <h2>คัดคนจริงจัง vs คนแค่ผ่านมา</h2>
+  <p class="lead">คุณไม่ต้องเดา ใช้ "3 คำถามกรอง" ในสัปดาห์แรก แล้วฟังที่คำตอบ + พฤติกรรม</p>
+
+  <h3>คำถามกรอง 3 ข้อ</h3>
+  <div class="script"><div class="en">1) Are you living in Thailand, or just visiting?</div><div class="th">อยู่ไทย หรือแค่มาเที่ยว</div></div>
+  <div class="script"><div class="en">2) What are you looking for here? I'm looking for something long-term.</div><div class="th">มาหาอะไรในแอปนี้ ฉันหาความสัมพันธ์ระยะยาว</div><div class="why">บอกของคุณก่อน เขาจะตอบตรงขึ้น</div></div>
+  <div class="script"><div class="en">3) Have you been in a serious relationship before? What did you learn from it?</div><div class="th">เคยมีความสัมพันธ์จริงจังไหม ได้เรียนรู้อะไรบ้าง</div></div>
+
+  <table>
+    <tr><th>สัญญาณเขียว 🟢</th><th>สัญญาณแดง 🔴</th></tr>
+    <tr><td>ถามเรื่องชีวิต งาน ครอบครัวคุณ</td><td>ชมแต่รูปร่าง ถามเรื่องเซ็กซ์เร็ว</td></tr>
+    <tr><td>จำสิ่งที่คุณเล่าได้</td><td>ถามซ้ำเรื่องเดิม เหมือนคุยกับหลายคน</td></tr>
+    <tr><td>ชวนเจอที่สาธารณะ ช่วงกลางวัน</td><td>ชวนไปห้อง/โรงแรมตั้งแต่เดทแรก</td></tr>
+    <tr><td>ยอมวิดีโอคอลง่าย ๆ</td><td>กล้องเสียตลอด ส่งแต่รูปสวยเกินจริง</td></tr>
+    <tr><td>มีแผนชีวิตชัด (งาน ที่อยู่ วีซ่า)</td><td>"Just traveling, let's see" ตลอดกาล</td></tr>
+    <tr><td>เคารพเมื่อคุณบอก "ไม่"</td><td>กดดัน ตื๊อ หรือโกรธเมื่อถูกปฏิเสธ</td></tr>
+    <tr><td>พูดถึงแฟนเก่าแบบให้เกียรติ</td><td>"แฟนเก่าบ้าทุกคน"</td></tr>
+  </table>
+
+  <div class="box tip"><span class="t">กฎ 3 สัญญาณแดง</span>เจอสัญญาณแดง 1 ข้อ = จดไว้ · 2 ข้อ = ถามตรง ๆ · 3 ข้อ = <b>Unmatch โดยไม่ต้องอธิบาย</b> เวลาของคุณมีค่า</div>
+  <div class="box note"><span class="t">"นักท่องเที่ยว" ไม่ได้แปลว่าไม่ดี</span>แค่ต้องรู้ตัวว่าความสัมพันธ์ระยะไกลมีความท้าทาย ถ้าเขามาเที่ยว 2 สัปดาห์ ให้ถามตรง ๆ ว่ามีแผนกลับมาไหม และอย่าลงทุนเงินหรือความรู้สึกจนกว่าจะเห็นการกระทำ (เช่น กลับมาจริง)</div>
+</section>
+
+<!-- CH 6 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 06</div>
+  <h2>เกราะกันมิจฉาชีพหลอกรัก</h2>
+  <p class="lead">บทที่สำคัญที่สุดในเล่ม อ่านซ้ำได้ทุกครั้งที่รู้สึก "ใจอ่อน"</p>
+  <div class="box warn"><span class="t">เรื่องจริงจากข่าว</span>ปลายปี 2025 ตำรวจไทยเปิดเผยคดีผู้หญิงไทยที่รู้จักชายคนหนึ่งผ่าน ThaiCupid แล้วถูกย้ายไปคุยทาง LINE จากนั้นโอนเงินรวม 42 ครั้ง เสียหาย <b>21.9 ล้านบาท</b> ในเวลาประมาณ 1 ปีครึ่ง แก๊งนี้มีทั้งคนไทยและต่างชาติ — มิจฉาชีพไม่ได้มีแค่ "ฝรั่งปลอม" (ที่มา: Khaosod English, ธ.ค. 2025)</div>
+
+  <h3>บทพูดที่มิจฉาชีพใช้บ่อย</h3>
+  <ul>
+    <li>"I'm an engineer on an oil rig / a doctor with the UN / a soldier" — งานที่ <b>วิดีโอคอลไม่ได้</b></li>
+    <li>"Let's move to LINE / WhatsApp, I rarely open this app" — ย้ายออกจากแอปเร็วมาก</li>
+    <li>"I sent you a gift, but customs need a fee" — ของขวัญติดศุลกากร ให้โอนค่าธรรมเนียม</li>
+    <li>"I can teach you to invest in crypto / gold, we'll build our future" — ชวนลงทุน</li>
+    <li>"My bank account is frozen, I'll pay you back next week" — ฉุกเฉิน ยืมเงิน</li>
+    <li>"I love you" ภายใน 1–2 สัปดาห์ ทั้งที่ยังไม่เคยเจอ</li>
+  </ul>
+
+  <h3>กฎเหล็ก 7 ข้อ</h3>
+  <ol>
+    <li><b>ไม่โอนเงินให้คนที่ไม่เคยเจอตัวจริง</b> ไม่ว่าเหตุผลจะน่าสงสารแค่ไหน</li>
+    <li><b>ไม่ลงทุน</b> ในแพลตฟอร์มที่คนรู้จักออนไลน์แนะนำ — ทุกกรณี</li>
+    <li><b>วิดีโอคอลก่อนผูกพัน</b> ถ้าเลี่ยงเกิน 3 ครั้ง = จบ</li>
+    <li><b>ค้นหารูปย้อนกลับ</b> (Google Lens) ทุกครั้งก่อนคุยจริงจัง</li>
+    <li><b>ไม่ส่งรูปบัตรประชาชน สมุดบัญชี หรือรูปส่วนตัว</b></li>
+    <li><b>เล่าให้เพื่อนสนิท 1 คนฟัง</b> — คนนอกมองเห็นสิ่งที่คนในความรักมองไม่เห็น</li>
+    <li><b>ใช้กฎ 24 ชั่วโมง</b> — ถ้ารู้สึกเร่ง กดดัน รอ 1 วันก่อนตัดสินใจทุกเรื่องที่เกี่ยวกับเงิน</li>
+  </ol>
+</section>
+
+<section class="chapter">
+  <div class="kicker">บทที่ 06 · ต่อ</div>
+  <h2>เช็กลิสต์ "เขาตัวจริงไหม"</h2>
+  <ul class="check">
+    <li>วิดีโอคอลแล้ว หน้าตรงกับรูป</li>
+    <li>ค้นรูปใน Google Lens แล้ว ไม่เจอเป็นรูปคนอื่น/นายแบบ</li>
+    <li>รู้ชื่อ-นามสกุลจริง และค้นเจอตัวตน (LinkedIn / Facebook ที่มีเพื่อนจริง มีประวัติยาว)</li>
+    <li>เรื่องเล่าสอดคล้องกัน (งาน เมือง อายุ) ไม่เปลี่ยนไปมา</li>
+    <li>ไม่เคยพูดถึงเงิน การลงทุน หรือขอความช่วยเหลือทางการเงิน</li>
+    <li>ยอมนัดเจอในที่สาธารณะ ภายในเวลาที่สมเหตุสมผล</li>
+    <li>เพื่อนสนิทของคุณได้ฟังเรื่องนี้แล้ว และไม่รู้สึกแปลก</li>
+  </ul>
+  <div class="box info"><span class="t">ถ้าสงสัยว่าโดนหลอก — ทำทันที</span>
+  1) หยุดโอนเงินเพิ่ม ไม่ว่าเขาจะขู่หรืออ้อนอย่างไร<br>
+  2) แคปหน้าจอแชท โปรไฟล์ เลขบัญชี สลิปทั้งหมด<br>
+  3) โทร <b>สายด่วน 1441</b> (ศูนย์ปราบปรามอาชญากรรมทางเทคโนโลยี — AOC) เพื่ออายัดบัญชี<br>
+  4) แจ้งความออนไลน์ที่ <b>thaipoliceonline.go.th</b><br>
+  5) Report โปรไฟล์ในแอป เพื่อไม่ให้คนอื่นโดนต่อ</div>
+  <div class="box tip"><span class="t">ประโยคตัดบทเรื่องเงิน</span>
+  <div class="script" style="margin:2mm 0 0"><div class="en">I have a personal rule: I never send money to someone I haven't met in person. I hope you understand.</div><div class="th">ฉันมีกฎส่วนตัว: ไม่โอนเงินให้คนที่ยังไม่เคยเจอตัวจริง หวังว่าจะเข้าใจ</div><div class="why">คนจริงจะเข้าใจ คนหลอกจะกดดัน — คำตอบของเขาบอกทุกอย่าง</div></div></div>
+</section>
+
+<!-- CH 7 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 07</div>
+  <h2>เดทแรก: ปลอดภัยและเป็นตัวเอง</h2>
+  <h3>เช็กลิสต์ก่อนออกจากบ้าน</h3>
+  <ul class="check">
+    <li>นัดที่สาธารณะ คนเยอะ ช่วงกลางวัน–หัวค่ำ (คาเฟ่ ห้าง ร้านอาหาร)</li>
+    <li>เดินทางไป-กลับเอง ไม่ให้เขามารับที่บ้าน</li>
+    <li>ส่งชื่อ รูป สถานที่ และเวลาให้เพื่อน 1 คน + แชร์ตำแหน่ง</li>
+    <li>ตั้งเวลาให้เพื่อนโทรมาเช็กกลางเดท</li>
+    <li>มีเงินพอจ่ายส่วนตัวเอง และค่าเดินทางกลับ</li>
+    <li>ดื่มน้อย ไม่ทิ้งแก้วไว้ลับตา</li>
+  </ul>
+  <h3>เรื่องจ่ายเงิน: ใครจ่าย?</h3>
+  <p>ในหลายประเทศตะวันตก การแชร์ค่าใช้จ่าย (split the bill) เป็นเรื่องปกติ <b>ไม่ได้แปลว่าเขาไม่ชอบคุณ</b> และการที่คุณเสนอจ่ายส่วนตัวเอง ทำให้คุณดูเป็นผู้หญิงที่มั่นคงและไม่ได้หวังเงิน ซึ่งคนจริงจังให้คุณค่ามาก</p>
+  <div class="script"><div class="en">Let's split it. Next time you can buy me coffee 😉</div><div class="th">หารกันนะ ครั้งหน้าค่อยเลี้ยงกาแฟ</div><div class="why">เสนอแบบนี้ = ทั้งให้เกียรติ และเปิดทางเดทครั้งต่อไป</div></div>
+  <h3>หัวข้อคุยเดทแรก</h3>
+  <ul>
+    <li>อาหารที่อยากให้เขาลอง / อาหารบ้านเกิดเขา</li>
+    <li>ที่เที่ยวในไทยที่เขายังไม่เคยไป</li>
+    <li>ชีวิตในวัยเด็ก เทศกาลในประเทศของแต่ละคน</li>
+    <li><b>เลี่ยง:</b> เงินเดือน ภาษีการเมืองหนัก ๆ แฟนเก่าแบบละเอียด แผนแต่งงาน</li>
+  </ul>
+  <div class="box tip"><span class="t">หลังเดท</span>ส่งข้อความสั้น ๆ ภายในคืนนั้นได้เลย ไม่ต้องรอ "เล่นตัว" ตามความเชื่อ:<br>
+  <i>"I had a really nice time today. Thanks for the great conversation 😊"</i><br>
+  ถ้าไม่อยากไปต่อ ก็บอกสุภาพได้: <i>"Thank you for today. I don't feel a romantic connection, but I wish you the best."</i></div>
+</section>
+
+<!-- CH 8 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 08</div>
+  <h2>ช่องว่างวัฒนธรรม</h2>
+  <p class="lead">คู่ต่างชาติส่วนใหญ่ไม่ได้เลิกกันเพราะภาษา แต่เลิกเพราะ "ความคาดหวังที่ไม่เคยพูด"</p>
+  <table>
+    <tr><th>เรื่อง</th><th>แบบไทย (ทั่วไป)</th><th>แบบตะวันตก (ทั่วไป)</th></tr>
+    <tr><td>การสื่อสาร</td><td>เกรงใจ อ้อม ๆ ให้อีกฝ่ายเดาใจ</td><td>พูดตรง คาดหวังให้บอกตรง ๆ</td></tr>
+    <tr><td>ครอบครัว</td><td>ลูกช่วยดูแลพ่อแม่ทางการเงินเป็นเรื่องปกติ</td><td>แยกการเงินจากพ่อแม่หลังโต</td></tr>
+    <tr><td>ความรัก</td><td>แสดงผ่านการดูแล ทำอาหาร ทำให้</td><td>แสดงผ่านคำพูด เวลา การชม</td></tr>
+    <tr><td>ความขัดแย้ง</td><td>เงียบ หลีกเลี่ยง รักษาหน้า</td><td>นั่งคุยให้จบ แม้จะอึดอัด</td></tr>
+    <tr><td>พื้นที่ส่วนตัว</td><td>ทำอะไรด้วยกันเกือบทุกอย่าง</td><td>ต้องการเวลาส่วนตัว ไม่ได้แปลว่ารักน้อย</td></tr>
+  </table>
+  <div class="small">*เป็นแนวโน้มทั่วไป ไม่ใช่ทุกคน ใช้เป็นจุดเริ่มคุย ไม่ใช่ป้ายแปะคน</div>
+
+  <h3>เรื่อง "เกรงใจ" — จุดที่พังบ่อยที่สุด</h3>
+  <p>เมื่อคุณบอก "It's okay" ทั้งที่ไม่โอเค แฟนต่างชาติส่วนใหญ่จะเชื่อจริง ๆ แล้วไม่ทำอะไรต่อ ฝึกพูดความรู้สึกตรง ๆ แบบนุ่มนวล:</p>
+  <div class="script"><div class="en">Actually, I felt a little hurt when you ... Can we talk about it?</div><div class="th">จริง ๆ แล้วรู้สึกเสียใจนิดหน่อยตอนที่คุณ... คุยกันได้ไหม</div></div>
+  <div class="script"><div class="en">In Thai culture we don't always say things directly, so sometimes I need time to tell you how I feel.</div><div class="th">วัฒนธรรมไทยเรามักไม่พูดตรง ๆ บางครั้งฉันเลยต้องใช้เวลาก่อนบอกความรู้สึก</div><div class="why">ช่วยให้เขาเข้าใจคุณ แทนที่จะคิดว่าคุณงอนไม่มีเหตุผล</div></div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">บทที่ 08 · ต่อ</div>
+  <h2>คุยเรื่องเงินและครอบครัว (ก่อนจะสายเกิน)</h2>
+  <p>เรื่องเงินช่วยพ่อแม่และสินสอด เป็นเรื่องที่ชาวต่างชาติหลายคนไม่เข้าใจ และมักได้ยินแต่เรื่องเล่าด้านลบ <b>ยิ่งพูดเร็ว พูดชัด ยิ่งลดความเข้าใจผิด</b> — แต่ไม่ใช่ในแชทแรก ให้รอจนความสัมพันธ์เริ่มจริงจัง (มักหลังคบกัน 2–3 เดือน)</p>
+  <h3>อธิบายเรื่องดูแลพ่อแม่</h3>
+  <div class="script"><div class="en">In Thailand, many children help their parents financially. For me, it's about gratitude, not obligation from you. I've always done this with my own salary.</div><div class="th">ในไทย ลูกหลายคนช่วยพ่อแม่ทางการเงิน สำหรับฉัน มันคือความกตัญญู ไม่ใช่ภาระของคุณ ฉันทำมาตลอดด้วยเงินเดือนของตัวเอง</div></div>
+  <h3>อธิบายเรื่องสินสอด</h3>
+  <div class="script"><div class="en">Sin sod is a Thai wedding tradition to honor the bride's family. Every family is different — some return it to the couple after the wedding. Let's talk about it openly with my family when the time comes.</div><div class="th">สินสอดเป็นประเพณีให้เกียรติครอบครัวเจ้าสาว แต่ละบ้านไม่เหมือนกัน บางบ้านคืนให้คู่บ่าวสาวหลังงาน ถึงเวลาแล้วมาคุยกับครอบครัวฉันอย่างเปิดเผยกันนะ</div></div>
+  <div class="box note"><span class="t">หลักคิด: "เงินของเรา" ต้องคุยกันทั้งสองฝ่าย</span>คู่ที่ไปได้ยาวมักตกลงกันได้ว่า ใครจ่ายอะไร ช่วยครอบครัวเท่าไหร่ จากเงินของใคร และ <b>ตกลงเป็นตัวเลขชัดเจน</b> แทนที่จะปล่อยให้เป็นความรู้สึก ความโปร่งใสคือสิ่งที่ปกป้องทั้งคุณและเขา</div>
+  <h3>ก่อนตัดสินใจย้ายประเทศหรือแต่งงาน</h3>
+  <ul>
+    <li>เคยใช้ชีวิตด้วยกันจริง ๆ อย่างน้อยหลายเดือน (ไม่ใช่แค่ช่วงวันหยุด)</li>
+    <li>มีรายได้หรือเงินเก็บของตัวเอง ไม่พึ่งพาเขา 100%</li>
+    <li>รู้ช่องทางติดต่อสถานทูตไทยในประเทศที่จะไป</li>
+    <li>ศึกษาเรื่องวีซ่าและสิทธิ์ทางกฎหมายด้วยตัวเอง (จากเว็บไซต์ทางการ)</li>
+    <li>ได้คุยกับครอบครัวและเพื่อนของเขาแล้ว</li>
+  </ul>
+</section>
+
+<!-- CH 9 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 09</div>
+  <h2>แผน 30 วัน</h2>
+  <p class="lead">ใช้วันละ 20–30 นาที ทำทีละขั้น ติ๊กทุกวันที่ทำเสร็จ</p>
+  <h4>สัปดาห์ 1 — เตรียมหน้าร้าน</h4>
+  <div class="day"><b>วัน 1</b><span>อ่านบท 1–3 · เขียนเป้าหมายของตัวเองใน 1 ประโยค ("ฉันมองหา...")</span></div>
+  <div class="day"><b>วัน 2</b><span>เลือก 2 แอป (บท 2) · ตั้งค่า + ยืนยันตัวตน</span></div>
+  <div class="day"><b>วัน 3–4</b><span>ถ่ายรูปใหม่ตามสูตร 5 ใบ (ให้เพื่อนช่วยถ่าย แสงธรรมชาติ)</span></div>
+  <div class="day"><b>วัน 5</b><span>เขียน Bio จากเทมเพลต · ให้เพื่อน 1 คนอ่านแล้วถามว่า "อ่านแล้วอยากทักไหม"</span></div>
+  <div class="day"><b>วัน 6–7</b><span>เปิดใช้งาน ปัดแบบเลือก: ปัดขวาเฉพาะคนที่มี Bio + รูปมากกว่า 2 ใบ</span></div>
+  <h4>สัปดาห์ 2 — ฝึกแชท</h4>
+  <div class="day"><b>วัน 8–10</b><span>ทักแมตช์ใหม่วันละ 3 คนด้วยสูตร "สังเกต + คำถาม" (บท 4)</span></div>
+  <div class="day"><b>วัน 11</b><span>ฝึก "กฎ 1 ต่อ 1" ทุกข้อความ · จดประโยคที่ได้ผลดีไว้</span></div>
+  <div class="day"><b>วัน 12–14</b><span>ใช้ "3 คำถามกรอง" (บท 5) กับทุกคนที่คุยเกิน 3 วัน · Unmatch คนที่มีสัญญาณแดง 3 ข้อ</span></div>
+  <h4>สัปดาห์ 3 — คัดกรองและวิดีโอคอล</h4>
+  <div class="day"><b>วัน 15–16</b><span>อ่านบท 6 · ค้นรูปย้อนกลับทุกคนที่คุยอยู่</span></div>
+  <div class="day"><b>วัน 17–19</b><span>ชวนวิดีโอคอลคนที่ผ่านการกรอง (5–10 นาทีพอ)</span></div>
+  <div class="day"><b>วัน 20–21</b><span>เลือกไม่เกิน 2–3 คนที่จะคุยต่อ · ปรับรูป/Bio จากผลที่ได้</span></div>
+  <h4>สัปดาห์ 4 — เดทจริง</h4>
+  <div class="day"><b>วัน 22–23</b><span>ชวนเจอด้วยสคริปต์บท 4 · อ่านเช็กลิสต์บท 7</span></div>
+  <div class="day"><b>วัน 24–27</b><span>ไปเดทแรก (ที่สาธารณะ แจ้งเพื่อน) · ส่งข้อความหลังเดท</span></div>
+  <div class="day"><b>วัน 28–29</b><span>ทบทวน: คนไหนมีสัญญาณเขียวมากที่สุด? ฉันรู้สึกปลอดภัยและเป็นตัวเองไหม?</span></div>
+  <div class="day"><b>วัน 30</b><span>เขียนสิ่งที่ได้เรียนรู้ 3 ข้อ · ตั้งเป้า 30 วันถัดไป</span></div>
+</section>
+
+<!-- CH 10 -->
+<section class="chapter">
+  <div class="kicker">บทที่ 10 · โบนัส</div>
+  <h2>คลังประโยคบอกความรู้สึก</h2>
+  <table>
+    <tr><th>อยากพูดว่า</th><th>ภาษาอังกฤษ</th></tr>
+    <tr><td>คิดถึงนะ</td><td>I miss you. / I was thinking about you today.</td></tr>
+    <tr><td>คุยกับคุณแล้วสบายใจ</td><td>I feel comfortable talking to you.</td></tr>
+    <tr><td>ประทับใจที่คุณ...</td><td>I really appreciate that you ...</td></tr>
+    <tr><td>วันนี้เหนื่อยมาก ขอพักก่อนนะ</td><td>I'm really tired today. Can we talk tomorrow?</td></tr>
+    <tr><td>ไม่ได้โกรธ แค่น้อยใจ</td><td>I'm not angry, I just felt a bit hurt / left out.</td></tr>
+    <tr><td>ขอเวลาคิดก่อน</td><td>Can I have some time to think about it?</td></tr>
+    <tr><td>อยากให้ทักมาบ่อยกว่านี้</td><td>I'd love to hear from you a little more often.</td></tr>
+    <tr><td>ขอโทษที่เข้าใจผิด</td><td>Sorry, I misunderstood. Thank you for explaining.</td></tr>
+    <tr><td>ไปช้า ๆ ดีไหม</td><td>I like you, but I'd like to take things slowly.</td></tr>
+    <tr><td>ฉันจริงจังกับเรื่องนี้</td><td>I'm serious about this. I want to see where it goes.</td></tr>
+    <tr><td>ขอบคุณที่ใจเย็นกับภาษาของฉัน</td><td>Thank you for being patient with my English.</td></tr>
+    <tr><td>เราดูเหมือนอยากได้อะไรต่างกัน</td><td>I think we want different things, and that's okay.</td></tr>
+  </table>
+  <div class="box tip"><span class="t">เคล็ดลับใช้แอปแปลให้เป็นธรรมชาติ</span>
+  พิมพ์ภาษาไทยให้สั้นและตรงก่อนแปล (ไม่ใช้คำแสลง) · แปลกลับเป็นไทยอีกรอบเพื่อเช็กความหมาย · ถ้าใช้ AI ช่วย ให้สั่งว่า <i>"Rewrite this in simple, warm, casual English, like texting a friend"</i> · อย่าให้ AI แต่งทั้งบทสนทนา — เขาอยากคุยกับ <b>คุณ</b></div>
+
+  <div class="box info" style="margin-top:8mm"><span class="t">ข้อความสุดท้ายจากผู้เขียน</span>
+  คุณไม่ได้ "อยากได้ฝรั่ง" — คุณอยากได้ความรักที่ดี กับคนที่บังเอิญมาจากอีกประเทศหนึ่ง ความต้องการนี้ไม่มีอะไรต้องอาย ขอให้เลือกด้วยใจที่มั่นใจ ช้าแต่ชัวร์ และปลอดภัยเสมอ 💛</div>
+  <p class="small" style="margin-top:6mm">ข้อมูลในเล่มนี้เป็นคำแนะนำทั่วไป ไม่ใช่คำปรึกษาทางกฎหมายหรือการเงิน เรื่องวีซ่า การสมรส และการย้ายประเทศ โปรดตรวจสอบกับหน่วยงานทางการ หากตกเป็นเหยื่อมิจฉาชีพ ติดต่อสายด่วน 1441 หรือ thaipoliceonline.go.th</p>
+</section>
+
+</body>
+</html>

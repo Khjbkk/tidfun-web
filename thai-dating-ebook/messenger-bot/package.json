@@ -1,0 +1,16 @@
+{
+  "name": "chatfarang-messenger-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "profile": "node scripts/setup-profile.mjs",
+    "start": "node local/server.mjs",
+    "tunnel": "npx --yes cloudflared tunnel --url http://localhost:8787"
+  },
+  "devDependencies": {
+    "wrangler": "^4.71.0"
+  }
+}

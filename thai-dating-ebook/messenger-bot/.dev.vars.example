@@ -1,0 +1,7 @@
+# Secrets — set in production with: npx wrangler secret put NAME
+PAGE_ACCESS_TOKEN=EAAG...
+APP_SECRET=xxxxxxxx
+APP_ID=1234567890
+VERIFY_TOKEN=any-long-random-string
+DATASET_ID=          # optional: Events Manager dataset linked to the Page (for Purchase events)
+CAPI_TOKEN=          # optional: system-user token with access to the dataset
