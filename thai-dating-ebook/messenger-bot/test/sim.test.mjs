@@ -21,7 +21,7 @@ const env = {
   PAGE_ID: '1339142735957300', APP_ID: '999', APP_SECRET: 'shh', VERIFY_TOKEN: 'vt', PAGE_ACCESS_TOKEN: 'tok',
   DATASET_ID: '555', PROMPTPAY_ID: '081-234-5678', PROMPTPAY_NAME: 'ทดสอบ',
   QR_URLS: JSON.stringify({ 129: 'https://x/qr129.png', 178: 'https://x/qr178.png', 490: 'https://x/qr490.png' }),
-  FILE_EBOOK_URL: 'https://x/ebook', FILE_CARDS_URL: 'https://x/cards', FILE_LEAD_URL: 'https://x/lead',
+  FILE_EBOOK_URL: 'https://x/ebook', FILE_CARDS_URL: 'https://x/cards', FILE_LEAD_URL: 'https://x/lead', FILE_WORKBOOK_URL: 'https://x/wb',
   AFFILIATE_CODES: 'MAY,NID', STATE: memKV(),
 };
 
@@ -68,6 +68,7 @@ test('full purchase with bump, admin approval, CAPI, upsell', async () => {
   assert.equal(s.stage, 'paid');
   assert.match(texts(u), /ดาวน์โหลดเล่ม/);
   assert.match(texts(u), /ดาวน์โหลดการ์ด/);
+  assert.match(texts(u), /ดาวน์โหลดสมุด/);
   const capi = calls.find((c) => c.url.includes('/555/events'));
   assert.equal(capi.body.data[0].custom_data.value, 178);
   assert.equal(capi.body.data[0].user_data.page_scoped_user_id, u);

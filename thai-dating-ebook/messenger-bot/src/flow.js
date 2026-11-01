@@ -20,7 +20,7 @@ const qrFor = (env, amount) => {
 };
 
 // PDF links: explicit FILE_*_URL, else the copy this Worker serves under public/<FILES_PATH>/.
-const FILES = { ebook: ['FILE_EBOOK_URL', 'fanfarang-ebook.pdf'], cards: ['FILE_CARDS_URL', 'chat-cards.pdf'], lead: ['FILE_LEAD_URL', '10-sentences.pdf'] };
+const FILES = { ebook: ['FILE_EBOOK_URL', 'fanfarang-ebook.pdf'], cards: ['FILE_CARDS_URL', 'chat-cards.pdf'], lead: ['FILE_LEAD_URL', '10-sentences.pdf'], workbook: ['FILE_WORKBOOK_URL', 'challenge-workbook.pdf'] };
 export const fileUrl = (env, key) => {
   const [v, name] = FILES[key];
   if (env[v]) return env[v];
@@ -124,6 +124,7 @@ async function receiveSlip(env, s) {
 export async function deliver(env, s) {
   await sendTexts(env, s.id, M.delivered(s.bump));
   await sendButton(env, s.id, '📘 แฟนฝรั่ง ไม่ต้องรอดวง (PDF)', 'ดาวน์โหลดเล่ม', fileUrl(env, 'ebook'));
+  if (fileUrl(env, 'workbook')) await sendButton(env, s.id, '✅ สมุดชาเลนจ์ 30 วัน (PDF)', 'ดาวน์โหลดสมุด', fileUrl(env, 'workbook'));
   if (s.bump && fileUrl(env, 'cards')) await sendButton(env, s.id, '🃏 Chat Cards 100 ประโยค (PDF)', 'ดาวน์โหลดการ์ด', fileUrl(env, 'cards'));
   await sendText(env, s.id, M.howToStart);
   s.stage = 'paid';
