@@ -94,3 +94,16 @@
 | ใส่ซับ | CapCut (ฟรี) | — |
 
 **ข้อควรระวังเรื่องนโยบาย:** TikTok/Meta บังคับติดป้าย "AI-generated" ให้คอนเทนต์ที่สร้างด้วย AI ให้เปิดป้ายนี้ทุกคลิป และแอดที่ใช้ภาพคน AI ก็ควรติดป้าย "AI info" ด้วย
+
+---
+
+## ✅ ผลิตแล้ว: คลิปตัวอย่างชุดแรก (1 พ.ย. 2026)
+| ตัวละคร | คลิป | ยาว | ภาพที่ใช้ (9:16) | เสียง HeyGen |
+|---|---|---|---|---|
+| พี่แพร | PRAE-01 หยุดทักฝรั่งว่า Hi — https://app.heygen.com/videos/6c24265cfbe91685c1d8851615a1964a | 36 วิ | https://cdn.openart.ai/openart-ai/production/2026-11/create-image/QiwCymtNqDxX503AYTiK/image_1793491910587_c32c7a87_1793491911015_e9b13f34.png | Anchalee – Friendly & Engaging (`6b86e5a9c25d4aa08390106cc5cdf55b`) |
+| James | JAMES-01 just traveling, let's see — https://app.heygen.com/videos/12973d95ff3ae44c28d20bad8aae7a68 | 32 วิ | https://cdn.openart.ai/openart-ai/production/2026-11/create-image/QiwCymtNqDxX503AYTiK/image_1793491914934_65445f95_1793491915091_a9af6c47.png | Neville – Warm & Easygoing (`96b762a3f37e44a78f3faf4d3490f96a`) speed 0.9 |
+| ป้าแต๋ว | TAEW-01 ของขวัญติดศุลกากร — https://app.heygen.com/videos/13550e51c132a313d9283fcb46bb5071 | 30 วิ | https://cdn.openart.ai/openart-ai/production/2026-11/create-image/QiwCymtNqDxX503AYTiK/image_1793491915594_ff1cf17f_1793491915829_e8ba0d68.png | Suphatra – Warm & Instructive (`a8e4c3155ada4a4c83b52823e8013e3d`) pitch −3, speed 1.05 |
+
+**วิธีผลิตซ้ำ (ใช้ภาพ + เสียงเดิมทุกคลิปเพื่อให้ตัวละครคงที่):** HeyGen `create_video_from_image` · 9:16 · 1080p · expressiveness medium (ป้าแต๋ว high) · caption style default · ปิดท้ายทุกคลิปด้วยประโยคบอกว่าเป็นตัวละคร AI
+**ต้นทุนจริง:** 3 คลิป (~98 วิ) ใช้ 30 premium credits ≈ 10 credits/คลิป 30 วิ · เหลือ 733 credits ≈ ผลิตได้อีก ~70 คลิป · ภาพ OpenArt 30 เครดิต/ภาพ
+**ก่อนโพสต์:** ดูว่าออกเสียงภาษาอังกฤษในคลิปภาษาไทยถูกไหม · ซับอัตโนมัติของ James เป็นอังกฤษ ต้องเพิ่มซับไทยใน CapCut · เปิดป้าย "AI-generated" ใน TikTok/IG
